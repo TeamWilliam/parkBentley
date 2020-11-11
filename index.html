@@ -9,24 +9,49 @@
 
 <body>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <nav class="login">
+        <li><a href="./content/login.jsp">Login</a></li>
+        <li><a href="./content/join.jsp">join</a></li>
+    </nav>
     <nav class="navbar">
-        <div class="navbar_logo">
+        <div class="logo">
 
-            <a href="./content/main.jsp" title="로그인">ParkBentley</a>
+            <a href="./content/main.jsp">ParkBentley</a>
 
         </div>
         <ul class="navbar_menu">
-        <li><a href=""></a>기업소개</li>
-        <li><a href=""></a>서비스 이용</li>
-        <li><a href="">입출차 하기</a></li>
-        <li><a href="">시용기록 조회</a></li>
-        <li><a href=""></a>사용통계 조회</li> <!--관리자 권한일때만 접근 가능하도록 설계-->
+            <li><a href="">기업 소개</a></li>
+            <li><a href="">서비스 이용</a>
+                <ul>
+                    <li><a href="#">예약하기</a></li>
+                    <li><a href="#">예약변경</a></li>
+                    <li><a href="#">예약확인</a></li>
+                </ul>
+            </li>
+            <li><a href="">입출차 확인</a>
+                <ul>
+                    <li><a href="#">입차하기</a></li>
+                    <li><a href="#">출차하기</a></li>
+                </ul>
+            </li>
+            <li><a href="">사용기록 조회</a></li>
 
+
+            <li><a href="">사용 통계 조회</a>
+            <!--관리자 권한일때만 접근 가능하도록 설계-->
+                <ul>
+                    <li><a href="#">월별 사용통계</a></li>
+                    <li><a href="#">일별 사용통계</a></li>
+                </ul>
+            </li>
         </ul>
         <div class="navbar_login">
 
         </div>
     </nav>
+    <div class="yellowBar"><div class="yellowBarText">로 그 인</div></div>
+    <!-- <div class="yellowBarText">로 그 인</div> -->
+
 </body>
 
 </html>

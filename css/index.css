@@ -11,25 +11,178 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: bisque;
+    background-color: white;
     padding: 8px 12px;
 }
-
-.navbar_logo{
-    font-size: 24px;
-    color: black;
+.login{
+    list-style: none;
+    display: flex;
+    align-items: right;
+    background-color: white;
+    padding: 8px 12px;
 }
+.login li:hover{
+    background-color: #C4C4C4;
+}
+
+.logo{
+    /* park bentley */
+    position: absolute;
+    width: 146px;
+    height: 79px;
+    left: 350px;
+    top: 66px;
+
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+
+    color: #483F37;
+}
+
 
 .navbar_menu{
-    display: flex;
+   /* like 서비스 이용 */
+   display: flex;
+   list-style: none;
+   padding-left: 0;
+    /* padding-right: 10; */
+   position: absolute;
+   /* width: 117px;
+   height: 30px; */
+   left: 673px;
+   top: 106px;
+
+   font-family: "Red Rose";
+   font-style: normal;
+   font-weight: normal;
+   font-size: 24px;
+   line-height: 30px;
+   /* identical to box height */
+   color: #857E71;
+
+
+}
+.navbar_menu li{
+    padding: 8px 12px;
+    
+}
+.navbar_menu ul {
     list-style: none;
     padding-left: 0;
-    padding-right: 10;
+    border: none;
+    padding:0px;
+    margin:0px;
+}
+.navbar_menu li a{
+    margin:0px;
+    padding:0px 10px;
+    text-align:center;
+    text-decoration:none;
+}
+.loginText{
+    /* 로그인 회원가입 */
+    position: absolute;
+    width: 138px;
+    height: 22px;
+    left: 1259px;
+    top: 44px;
+
+    font-family:" Red Rose";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #EAD08C;
+}
+.yellowBar{
+    /* Rectangle 3 */
+    position: absolute;
+    width: 100%;
+    height: 96px;
+    left: 0px;
+    top: 193px;
+    background: #EAD08C;
+    
+}
+.yellowBarText{
+    text-align: center;
+    vertical-align: middle;
+
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: normal;
+    
+    font-size: 28px;
+    line-height: 35px;
+    /* identical to box height */
+    color: #886E50;
 }
 
-.navbar_menu_li{
-    padding: 8px 12px;
-}
-.navbar_menu_li:hover{
-    background-color: darkgoldenrod;
-}
+/*--------------*/
+.navbar_menu li a:hover, .navbar_menu ul li:hover a{
+    background: #C4C4C4;
+    color:#FFFFFF;
+    text-decoration:none;
+    }
+    
+    .navbar_menu li ul{
+    background: #C4C4C4;
+    display:none; 
+    height:auto;
+    border:0px;
+    position:absolute;
+    width:200px;
+    z-index:200;
+    }
+    
+    .navbar_menu li:hover ul{
+    display:block;
+    }
+    
+    .navbar_menu li li {
+    background: #C4C4C4;
+    display:block;
+    float:none;
+    margin:0px;
+    padding:0px;
+    width:200px;
+    }
+    
+    .navbar_menu li:hover li a{
+    background:none;
+    }
+    
+    .navbar_menu li ul a{
+    display:block;
+    height:30px;
+    margin:0px;
+    padding:0px 10px 0px 15px;
+    text-align:left;
+    }
+    
+    .navbar_menu li ul a:hover, .navbar_menu li ul li:hover a{
+    background: rgb(171,171,171);
+    border:0px;
+    color:#ffffff;
+    text-decoration:none;
+    }
+    
+    .navbar_menu p{
+    clear:left;
+    }
+
+/* .dropmenu li:hover{
+    background-color: #C4C4C4;
+  
+} */
+
+/*@media screen and (max-width: 768px){
+    .navbar{
+        flex-direction: column;
+    }
+    
+}*/
