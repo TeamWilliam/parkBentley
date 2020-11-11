@@ -5,13 +5,15 @@
     <title>ParkBentley</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/clock.css" />
 </head>
 
 <body>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <nav class="loginText">
-        <li><a href="./content/login.jsp">Login</a></li>
-        <li><a href="./content/join.jsp">join</a></li>
+        <li><a href="./content/login/login.jsp">Login</a></li>
+        <li><button type="button" onclick="location.href='./content/login/login.jsp' ">로그인</button></li>
+        <li><a href="./content/login/join.jsp">join</a></li>
     </nav>
     <nav class="navbar">
         <div class="logo">
@@ -48,7 +50,15 @@
     </nav>
     <div class="yellowBar"><div class="yellowBarText">로 그 인</div></div>
     <!-- <div class="yellowBarText">로 그 인</div> -->
+    
+    <div class="js-clock">
+        <h1>00:00</h1>
+    </div>
+    
+    <script src = "./content/main/clock.js"></script>
 
+
+  
 </body>
 
 </html>
