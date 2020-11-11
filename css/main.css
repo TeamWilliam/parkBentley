@@ -14,14 +14,14 @@ a{
     background-color: white;
     padding: 8px 12px;
 }
-.login{
+.loginText{
     list-style: none;
     display: flex;
     align-items: right;
     background-color: white;
     padding: 8px 12px;
 }
-.login li:hover{
+.loginText li:hover{
     background-color: #C4C4C4;
 }
 
@@ -89,14 +89,24 @@ a{
     height: 22px;
     left: 1259px;
     top: 44px;
-
     font-family:" Red Rose";
+    text-decoration:none;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-
+    list-style: none;
     color: #EAD08C;
+}
+.loginText li{
+    padding-left: 0;
+    padding: 8px 12px;
+}
+.loginText li a{
+    margin:0px;
+    padding:0px 10px;
+    text-align:center;
+    text-decoration:none;
 }
 .yellowBar{
     /* Rectangle 3 */
