@@ -5,10 +5,11 @@
  ## 사용법
  ### master branch 기준
   ```
-  git clone https://github.com/CSID-DGU/2020-2-OSSP1-WebRTC-2.git
+  git clone https://github.com/TeamWilliam/parkBentley.git
   node main.js
   chrome 주소창에 localhost:3000 입력
  ```
+ 
 
 ## team William
 - 권지형
