@@ -111,6 +111,7 @@ a{
 .yellowBar{
     /* Rectangle 3 */
     position: absolute;
+    vertical-align: middle;
     width: 100%;
     height: 96px;
     left: 0px;
