@@ -1,0 +1,43 @@
+/* .roundYellowBox{
+
+    position: absolute;
+    width: 1200px;
+    height: 470px;
+    left: 50%;
+    top: 350px;
+    margin-left: -600px;
+
+    background: #FFFFFF;
+    border: 3px solid #EAD08C;
+    border-radius: 58px;
+} */
+#nextYellowButton button{
+    position: absolute;
+    width: 260px;
+    height: 77px;
+    padding: 10px;
+    margin-left: 340px;
+    left: 50%;
+    top: 850px;
+
+    vertical-align: middle;
+    background: #EAD08C;
+    border: 3px solid #EAD08C;
+    border-radius: 30px;
+}
+#buttonText{
+    /* position: absolute;
+    width: 179px;
+    height: 45px;
+    left: 1100px;
+    top: 904px; */
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+    /* identical to box height */
+    color: #483F37;
+}
