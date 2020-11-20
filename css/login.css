@@ -7,8 +7,11 @@
 }
 .loginmain .login .top{
     line-height: 30px;
+    padding: 20px 20px 20px 20px;
     border: 3px solid #EAD08C;
-    border-radius: 10px;
+    border-radius: 20px;
+    margin-left: 700px;
+    margin-right: 700px;
 }
 .loginmain .login .top li label{
     display: inline-block;
@@ -19,8 +22,6 @@
     font-weight: bold;
     
 }
-
-
 .loginmain .login .top li input [type ="text"], 
 .loginmain .login .top li input [type ="password"]{
     width: 130px;
@@ -42,4 +43,28 @@
     line-height: 60px;
     border: 1px solid #EAD08C;
     border-radius: 10px;
+}
+.loginmain .login .top .li .save {
+    padding: 0 0 0 59px;
+    font-weight: normal;
+}
+.loginmain .login .top .li .save label{
+    width: auto;
+    font-weight: normal;
+}
+.loginmain .login .btm{
+    padding: 31px 0 0 59px;
+    margin-left: 600px;
+    margin-right: 700px;
+}
+.loginmain .login .btm li{
+    padding: 31px 0 0 59px;
+    font-size: 12px;
+    list-style: none;
+}
+.loginmain .login .btm li a{
+    padding: 31px 0 0 59px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 0 0 10px;
 }
