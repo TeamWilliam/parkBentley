@@ -1,0 +1,45 @@
+.loginmain{
+    padding:50px
+}
+.loginmain .login .top li{
+    padding: 0 0 9px;
+    list-style: none;
+}
+.loginmain .login .top{
+    line-height: 30px;
+    border: 3px solid #EAD08C;
+    border-radius: 10px;
+}
+.loginmain .login .top li label{
+    display: inline-block;
+    width: 80px;
+    font-size: 15px;
+    list-style: none;
+    color: hsl(28, 13%, 25%); 
+    font-weight: bold;
+    
+}
+
+
+.loginmain .login .top li input [type ="text"], 
+.loginmain .login .top li input [type ="password"]{
+    width: 130px;
+    height: 33px;
+    list-style: none;
+    padding:0;
+    border-color: #E7E7E7;
+}
+.loginmain .login .top li a{
+    display: block;
+    width: 111px;
+    height: 60px;
+    list-style: none;
+    background-color: #EAD08C;
+    font-size: 18px;
+    color: #483F37;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    border: 1px solid #EAD08C;
+    border-radius: 10px;
+}
