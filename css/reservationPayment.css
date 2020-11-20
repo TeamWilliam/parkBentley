@@ -1,0 +1,72 @@
+.yellowReceipt{
+    position: absolute;
+    float: left;
+    width: 560px;
+    height: 540px;
+    left: 50%;
+    top: 322px;
+    margin-left: -600px;
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: normal;
+
+    background: #ffffff;
+    border: 3px solid #EAD08C;
+    border-radius: 58px;
+}
+.warnningBox{
+    position: absolute;
+    float: left;
+    top:322px;
+    left: 50%;
+    margin: 50px;
+    margin-right: 200px;
+    
+}
+.yellowReceipt .receipt{
+    margin-top: 50px;
+    vertical-align: middle;
+    text-align: center;    
+    font-size: 48px;
+    line-height: 60px;
+    /* identical to box height */
+    color: #483F37;
+}
+.yellowReceipt .receiptText{
+    margin: 40px;
+    font-size: 35px;
+    line-height: 70px;
+    /* identical to box height */
+    color: #483F37;
+}
+.yellowReceipt .cost{
+    margin: 40px;
+    font-size: 35px;
+    line-height: 70px;
+    /* identical to box height */
+    color: #ff0000;
+}
+.yellowReceipt .line{
+    border: 2px solid #483F37;
+    margin: 30px;
+    color: #483F37;
+}
+.yellowReceipt .remainBalance{
+    margin: 40px;
+    font-size: 35px;
+    line-height: 70px;
+    /* identical to box height */
+    color: #0000ff;
+}
+
+.warnningBox .red{
+    /* margin: 50px;
+    margin-right: 200px; */
+    font-size: 25px;
+    color: #ff0000;
+}
+
+.warnningBox .check{
+    font-size: 28px;
+    color: #483F37;
+}

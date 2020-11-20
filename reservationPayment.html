@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ParkBentley</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/reservationPayment.css" />
+    <link rel="stylesheet" href="./css/calendar.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <nav class="loginText">        
+        <li><a href="login.html">Login</a></li>
+        <!--<li><button type="button" onclick="location.href='login.html'">로그인</button></li>-->
+        <li><a href="./join.html">join</a></li>
+    </nav>
+    <nav class="navbar">
+        <div class="logo">
+
+            <a href="./content/main.jsp">Park Bentley</a>
+
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="">서비스 이용</a>
+                <ul>
+                    <li><a href="./makeReservation.html">예약하기</a></li>
+                    <li><a href="#">예약변경</a></li>
+                    <li><a href="#">예약확인</a></li>
+                </ul>
+            </li>
+            <li><a href="">입출차 확인</a>
+                <ul>
+                    <li><a href="#">입차하기</a></li>
+                    <li><a href="#">출차하기</a></li>
+                </ul>
+            </li>
+            <li><a href="">사용기록 조회</a></li>
+
+
+            <li><a href="">사용 통계 조회</a>
+            <!--관리자 권한일때만 접근 가능하도록 설계-->
+                <ul>
+                    <li><a href="#">월별 사용통계</a></li>
+                    <li><a href="#">일별 사용통계</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- 기본 테마 끝 -->
+    <div class="yellowBar">
+        <p class="yellowBarText">결제 하기</p>
+    </div>
+
+    <div class="yellowReceipt">
+        <div class="receipt"> Receipt </div>
+        <div class="receiptText">남은 충전 금액</div>
+        <div class="cost">결제 예정 금액</div>
+        <hr class="line">
+        <div class="remainBalance">남은 충전 금액</div>
+    </div>
+    <div class="warnningBox">
+        <div class="red">
+            <h3>※주의※</h3>
+            <p>선 결제 시 기본금액이 부과되며, 예약시간 초과 시 <br> 시간당 1000원의 추가요금이 발생됩니다.</p>
+            <p>예약 취소는 하루 전까지 가능합니다.</p>
+        </div>
+        <div class="check">
+            <label><input style='zoom:2.0; background-color: #EAD08C;' type="checkbox" name="color" value="red"> 상단의 주의사항을 숙지하였습니다. </label>
+            <p>상단의 주의사항을 숙지하였습니다.</p>
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

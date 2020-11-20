@@ -76,17 +76,17 @@
             <p>예약 시간 초과시 시간당 1000원의 추가요금이 발생됩니다.</p>
         </div>
     </div>
-
     <div id="nextYellowButton">
-        <!-- 입력한 값이랑 같이 넘겨주기 -->
-        <button id="buttonText" onclick="location.href='./reservationPayment.html'">다음 단계 >> </button>
-    </div>
-    <div id="nextYellowButton">
-        <!-- 입력한 값이랑 같이 넘겨주기 -->
-        <button id="buttonText" onclick="location.href='./reservationPayment.html'">이전 단계 >> </button>
-    </div>
+        <div>
+            <!-- 입력한 값이랑 같이 넘겨주기 -->
+            <button id="buttonText" onclick="history.back(-1);"><< 이전 단계 </button>
+        </div>
 
-    <script src="./content/service/makeReservation.js"></script>
+        <div>
+            <!-- 입력한 값이랑 같이 넘겨주기 -->
+            <button id="buttonText" onclick="location.href='./reservationPayment.html'">다음 단계 >> </button>
+        </div>
+    </div>
 
 
 </body>
