@@ -40,14 +40,15 @@
     color: #ff0000;
 }
 #nextYellowButton button{
-    position: relative;
+    position: absolute;
+    float: left;
     width: 260px;
     height: 77px;
     padding: 10px;
     margin: 20px;
-    margin-left: 340px;
+    margin-left: -130px;
     left: 50%;
-    top: 850px;
+    top: 900px;
 
     vertical-align: middle;
     background: #EAD08C;
