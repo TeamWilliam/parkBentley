@@ -3,8 +3,24 @@
     width:300px;
     height:300px;
     position:absolute;
-    left:50%;
-    top:50%;
+    left:70%;
+    top:53%;
     margin-left:-150px;
     margin-top:-150px;
+    font-size: 60px;
+    font-weight: bold;
+    color: #483F37;
+}
+.js-date{
+    text-align : center;
+    width:300px;
+    height:300px;
+    position:absolute;
+    left:70%;
+    top:53%;
+    margin-left:-150px;
+    margin-top:-150px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #483F37;
 }
