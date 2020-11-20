@@ -5,7 +5,8 @@
     <title>ParkBentley</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/clock.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/join.css" />
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
 </head>
 
@@ -13,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <nav class="loginText">
         <li><a href="./login.html">Login</a></li>
+        <!--<li><button type="button" onclick="location.href='login.html'">로그인</button></li>-->
         <li><a href="./join.html">Join</a></li>
     </nav>
     <nav class="navbar">
@@ -39,7 +41,6 @@
 
 
             <li><a href="">사용 통계 조회</a>
-            <!--관리자 권한일때만 접근 가능하도록 설계-->
                 <ul>
                     <li><a href="#">월별 사용통계</a></li>
                     <li><a href="#">일별 사용통계</a></li>
@@ -47,12 +48,29 @@
             </li>
         </ul>
     </nav>
-    
-    <div class="js-clock">
-        <h1>00:00</h1>
+    <div class="yellowBar">
+        <p class="yellowBarText">회 원 가 입</p>
+        <div class="loginmain">
+            <form action=" " method="post">
+          
+                    
+                    <div class="login">
+                        <ul class = "top">
+                            <li><label for="id">아이디</label><input type="text" id="id"></li>
+                            <li><label for="pw">비밀번호</label><input type="password" id="pw"></li>
+                            <li class = "save"><input type="checkbox" id="check1"><label for="check1">아이디 저장</label> </li>
+                            <li class="loginbtn"><a href="#">로그인</a></li>
+                        </ul>
+                        <ul class = "btm">
+                            <li>혹시 아이디 / 비밀번호를 잊으셨나요?<a href="#">아이디 찾기</a></li>
+                            <li>혹시 회원 정보가 없으신가요?<a href="#">회원가입</a></li>
+                        </ul>
+                    </div>
+            </form>
+        </div>
     </div>
+    <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
     
-    <script src = "./content/main/clock.js"></script>
 
 </body>
 
