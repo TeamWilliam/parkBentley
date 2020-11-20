@@ -40,7 +40,7 @@
 
 
             <li><a href="">사용 통계 조회</a>
-            <!--관리자 권한일때만 접근 가능하도록 설계-->
+                <!--관리자 권한일때만 접근 가능하도록 설계-->
                 <ul>
                     <li><a href="#">월별 사용통계</a></li>
                     <li><a href="#">일별 사용통계</a></li>
@@ -48,20 +48,29 @@
             </li>
         </ul>
     </nav>
-    <div class = "mainbar">
-        <div class="js-date" id = "date">
-            <h2>date</h2>
+    <div class="mainbar">
+        <div class="right">
+            <div class="js-date" id="date">
+                <h2>date</h2>
+                
+            </div>
+            <div class="js-clock">
+                <h2>00:00</h2>
+            </div>
         </div>
-        <div class="js-clock">
-            <h2>00:00</h2>
+        <div class="left-top">
+            <h2 class = "Floor">1st Floor / 2</h2>
+            <a onClick="window.location.reload()" style="cursor: pointer;">새로 고침 </a>
         </div>
-        
-
+        <div class="left">
+            
+            
+        </div>
     </div>
-    
-    
-    <script src = "./content/main/clock.js"></script>
-    <script src = "./content/main/date.js"></script>
+
+
+    <script src="./content/main/clock.js"></script>
+    <script src="./content/main/date.js"></script>
 
 </body>
 
