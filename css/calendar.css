@@ -15,8 +15,8 @@ html, body {
   }
   
   /* ======== Calendar ======== */
-  .my-calendar {
-      /* Rectangle 24 */
+  /* .my-calendar {
+      
     position: absolute;
     width: 1200px;
     height: 470px;
@@ -32,12 +32,8 @@ html, body {
     font-weight: 800;
     cursor: default;
     
-    /* width: 1000px;
-    margin: 30px;
-    border: 1px solid #ddd;
-     */
-  }
-  .my-calendar .clicked-date {
+  } */
+  .roundYellowBox .clicked-date {
     border-radius: 25px;
     margin-top: 20px 20px;
     float: right;
@@ -57,7 +53,7 @@ html, body {
     font-size: 24px;
   }
 
-  .my-calendar .calendar-box {
+  .roundYellowBox .calendar-box {
     vertical-align: middle;
     text-align: center;
     float: left;

@@ -57,7 +57,7 @@
     <!-- <div class="roundYellowBox">
     </div> -->
     <div class="container">
-        <div class="my-calendar clearfix">
+        <div class="roundYellowBox clearfix">
           <!--날짜 선택하는 달력-->
           <div class="calendar-box">
               <div class="ctr-box clearfix">
@@ -88,17 +88,22 @@
               <p class="cal-mon"></p>
             <p class="cal-date"></p>
             <p class="cal-day"></p>
-          </div>
+
+            <input id='name' onchange='printName()'/>
+            <div id='result'></div>
+        </div>
           
         </div>
         <!-- // .my-calendar -->
-      </div>
+        
+    </div>
     <div id="nextYellowButton">
         <!-- 입력한 값이랑 같이 넘겨주기 -->
         <button id="buttonText" onclick="location.href='./confirmReservation.html'">예약 확인 >> </button>
     </div>
 
     <script src="./content/service/calendar.js"></script>
+    <script src="./content/service/makeReservation.js"></script>
 
 
 </body>
