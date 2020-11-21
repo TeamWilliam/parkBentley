@@ -63,7 +63,7 @@ input.reload-button {
     background-repeat: no-repeat;  /* make the background image appear only once */
     border: none;           /* assuming we don't want any borders */
     height: 25px;           /* make this the size of your image */
-    padding-left: 1000px;     /* make text start to the right of the image */
+    margin-left: 1000px;     /* make text start to the right of the image */
     margin-top: -20px;
   
 }
