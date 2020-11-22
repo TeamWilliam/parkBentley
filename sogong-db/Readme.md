@@ -22,4 +22,4 @@ CREATE TABLE BOARD(
 (npm start) or (node app.js) 
 ```
 ### DB TABLE
-![db_table](https://user-images.githubusercontent.com/55631147/99897645-81faef00-2cde-11eb-9272-76da7bf1138b.PNG)
+![db_table](https://user-images.githubusercontent.com/55631147/99898794-91cb0100-2ce7-11eb-9881-3215faeefa3c.PNG)
