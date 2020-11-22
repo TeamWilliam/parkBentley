@@ -9,12 +9,7 @@ npm install ejs --save
 ```
 CREATE DATABASE my_db;
 
-CREATE TABLE BOARD(
-    ID VARCHAR(50),
-    TITLE VARCHAR(200),
-    CONTENT VARCHAR(1000),
-    WDATE DATE
-);
+(create_db_table.txt 참고)
 ```
 
 ### npm 실행 
