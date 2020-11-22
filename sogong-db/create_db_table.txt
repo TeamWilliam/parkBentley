@@ -85,7 +85,8 @@ CREATE TABLE RESERVATION
    EndTime               DATE  NULL ,
    Price                 INT  NULL ,
    CarNum                INT  NOT NULL ,
-   Paystate              VARCHAR(18)  NULL 
+   Sit                   INT  NOT NULL ,
+   Floor                 VARCHAR(3)  NOT NULL 
 );
 
 
@@ -103,7 +104,7 @@ CREATE TABLE USER
    PW                    INT  NOT NULL ,
    Name                  VARCHAR(18)  NULL ,
    CarNum                INT  NOT NULL ,
-   Money                 INT   DEFAULT 0 NULL ,
+   Money                 INT   DEFAULT  0 NULL ,
    Email                 VARCHAR(30)  NULL ,
    CarType               VARCHAR(18)  NULL 
 );
@@ -135,6 +136,10 @@ ALTER TABLE PARKINGSPOT
 
 ALTER TABLE RESERVATION
    ADD (CONSTRAINT  R_2 FOREIGN KEY (CarNum) REFERENCES CAR(CarNum));
+
+
+ALTER TABLE RESERVATION
+   ADD (CONSTRAINT  R_13 FOREIGN KEY (Sit,Floor) REFERENCES PARKINGSPOT(Sit,Floor));
 
 
 ALTER TABLE USER
