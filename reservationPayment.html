@@ -54,7 +54,8 @@
     <div class="yellowBar">
         <p class="yellowBarText">결제 하기</p>
     </div>
-
+    <!-- 안에 내용 -->
+    <!-- <div class="yellowBorder"> -->
     <div class="yellowReceipt">
         <div class="receipt"> Receipt </div>
         <div class="receiptText">남은 충전 금액</div>
@@ -74,7 +75,29 @@
         </div>
 
     </div>
-    
+    <!-- </div> -->
+    <!-- 이전 버튼, 다음 버튼 -->
+    <div id="nextYellowButton">
+        <button id="buttonText" onclick="openPopup()">예약 완료 >> </button>
+    </div>
+    <div id="prevYellowButton">
+        <button id="buttonText" onclick="history.back(-1);"><< 이전 단계</button>
+    </div>
+
+    <script>
+        function openPopup(){
+ 
+            var _width = '400';
+            var _height = '200';
+
+            // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+            var _left = Math.ceil(( window.screen.width - _width )/2);
+            var _top = Math.ceil(( window.screen.height - _height )/2); 
+
+            window.open('./completeReservation.html', 'popup-test', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+        }
+
+    </script>
     
 
 </body>

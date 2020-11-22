@@ -1,3 +1,15 @@
+.yellowBorder{
+    
+    width: 1250px;
+    height: 650px;
+    left: 50%;
+    top: 300px;
+    margin-left: -625px;
+
+    border: 3px solid #EAD08C;
+    border-radius: 58px;
+
+}
 .yellowReceipt{
     position: absolute;
     float: left;
@@ -49,7 +61,7 @@
 .yellowReceipt .line{
     border: 2px solid #483F37;
     margin: 30px;
-    color: #483F37;
+    background-color: #483F37;
 }
 .yellowReceipt .remainBalance{
     margin: 40px;
@@ -68,5 +80,54 @@
 
 .warnningBox .check{
     font-size: 28px;
+    color: #483F37;
+}
+
+#nextYellowButton button{
+    position: absolute;
+    float: left;
+    width: 260px;
+    height: 77px;
+    padding: 10px;
+    margin: 20px;
+    left: 50%;
+    top: 880px;
+
+    vertical-align: middle;
+    background: #EAD08C;
+    border: 3px solid #EAD08C;
+    border-radius: 30px;
+}
+#prevYellowButton button{
+    position: absolute;
+    float: left;
+    width: 260px;
+    height: 77px;
+    padding: 10px;
+    margin: 20px;
+    margin-left: -260px;
+    left: 50%;
+    top: 880px;
+
+    vertical-align: middle;
+    background: #EAD08C;
+    border: 3px solid #EAD08C;
+    border-radius: 30px;
+}
+
+#buttonText{
+    /* position: absolute;
+    width: 179px;
+    height: 45px;
+    left: 1100px;
+    top: 904px; */
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+    /* identical to box height */
     color: #483F37;
 }

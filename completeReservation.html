@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>예약 완료 팝업창</title>
+    </head>
+    <body>
+        <div style="vertical-align: middle;">
+            <h1>예약이 완료되었습니다.</h1>
+            <input type="button" value="확 인(처음으로)" onclick="moveClose()" />
+        </div>
+    </body>
+    <script>
+        function moveClose(){
+            opener.location.href="index.html";
+            self.close();
+        }
+    </script>
+</html>
