@@ -1,0 +1,141 @@
+CREATE TABLE CAR
+(
+   CarNum                INT  NOT NULL ,
+   State                 VARCHAR(18)  NULL ,
+   Sit                   INT  NOT NULL ,
+   Floor                 VARCHAR(3)  NOT NULL 
+);
+
+
+CREATE UNIQUE INDEX XPKCAR ON CAR
+(CarNum  ASC);
+
+
+ALTER TABLE CAR
+   ADD CONSTRAINT  XPKCAR PRIMARY KEY (CarNum);
+
+
+CREATE TABLE CARTRANSACTION
+(
+   ReservationNum        INT  NOT NULL ,
+   R_StartTime           DATE  NULL ,
+   R_EndTime             DATE  NULL ,
+   PaidMoney             INT  NULL ,
+   OverPrice             INT  NULL 
+);
+
+
+CREATE UNIQUE INDEX XPKCARTRANSACTION ON CARTRANSACTION
+(ReservationNum  ASC);
+
+
+ALTER TABLE CARTRANSACTION
+   ADD CONSTRAINT  XPKCARTRANSACTION PRIMARY KEY (ReservationNum);
+
+
+CREATE TABLE HISTORY
+(
+   Date                  CHAR(18)  NULL ,
+   ReservationNum        INT  NOT NULL 
+);
+
+
+CREATE UNIQUE INDEX XPKHISTORY ON HISTORY
+(ReservationNum  ASC);
+
+
+ALTER TABLE HISTORY
+   ADD CONSTRAINT  XPKHISTORY PRIMARY KEY (ReservationNum);
+
+
+CREATE TABLE PARKINGLOT
+(
+   Floor                 VARCHAR(3)  NOT NULL 
+);
+
+
+CREATE UNIQUE INDEX XPKPARKINGLOT ON PARKINGLOT
+(Floor  ASC);
+
+
+ALTER TABLE PARKINGLOT
+   ADD CONSTRAINT  XPKPARKINGLOT PRIMARY KEY (Floor);
+
+
+CREATE TABLE PARKINGSPOT
+(
+   Sit                   INT  NOT NULL ,
+   Status                VARCHAR(18)  NOT NULL ,
+   Floor                 VARCHAR(3)  NOT NULL 
+);
+
+
+CREATE UNIQUE INDEX XPKPARKINGSPOT ON PARKINGSPOT
+(Sit  ASC,Floor  ASC);
+
+
+ALTER TABLE PARKINGSPOT
+   ADD CONSTRAINT  XPKPARKINGSPOT PRIMARY KEY (Sit,Floor);
+
+
+CREATE TABLE RESERVATION
+(
+   ReservationNum        INT  NOT NULL ,
+   StartTime             DATE  NULL ,
+   EndTime               DATE  NULL ,
+   Price                 INT  NULL ,
+   CarNum                INT  NOT NULL ,
+   Paystate              VARCHAR(18)  NULL 
+);
+
+
+CREATE UNIQUE INDEX XPKRESERVATION ON RESERVATION
+(ReservationNum  ASC);
+
+
+ALTER TABLE RESERVATION
+   ADD CONSTRAINT  XPKRESERVATION PRIMARY KEY (ReservationNum);
+
+
+CREATE TABLE USER
+(
+   ID                    VARCHAR(18)  NOT NULL ,
+   PW                    INT  NOT NULL ,
+   Name                  VARCHAR(18)  NULL ,
+   CarNum                INT  NOT NULL ,
+   Money                 INT   DEFAULT 0 NULL ,
+   Email                 VARCHAR(30)  NULL ,
+   CarType               VARCHAR(18)  NULL 
+);
+
+
+CREATE UNIQUE INDEX XPKUSER ON USER
+(ID  ASC);
+
+
+ALTER TABLE USER
+   ADD CONSTRAINT  XPKUSER PRIMARY KEY (ID);
+
+
+ALTER TABLE CAR
+   ADD (CONSTRAINT  R_8 FOREIGN KEY (Sit,Floor) REFERENCES PARKINGSPOT(Sit,Floor));
+
+
+ALTER TABLE HISTORY
+   ADD (CONSTRAINT  R_11 FOREIGN KEY (ReservationNum) REFERENCES RESERVATION(ReservationNum));
+
+
+ALTER TABLE HISTORY
+   ADD (CONSTRAINT  R_12 FOREIGN KEY (ReservationNum) REFERENCES CARTRANSACTION(ReservationNum));
+
+
+ALTER TABLE PARKINGSPOT
+   ADD (CONSTRAINT  R_7 FOREIGN KEY (Floor) REFERENCES PARKINGLOT(Floor));
+
+
+ALTER TABLE RESERVATION
+   ADD (CONSTRAINT  R_2 FOREIGN KEY (CarNum) REFERENCES CAR(CarNum));
+
+
+ALTER TABLE USER
+   ADD (CONSTRAINT  R_1 FOREIGN KEY (CarNum) REFERENCES CAR(CarNum));
