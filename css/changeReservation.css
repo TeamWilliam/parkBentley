@@ -1,0 +1,37 @@
+.text{
+    position: absolute;
+    width: 515px;
+    height: 45px;
+    top:350px;
+    margin-left: 300px;
+
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+    color: #483F37;
+}
+.yellowRoundBox{
+    position: absolute;
+    width: 1220px;
+    height: 366px;
+    left: 50%;
+    top: 400px;
+    margin-top: 50px;
+    margin-left: -610px;
+
+    background: #FFFFFF;
+    border: 3px solid #EAD08C;
+    border-radius: 53px;
+}
+.yellowRoundBox .table{
+    width: 1150px;
+    height: 360px;
+    text-align: center;
+    vertical-align: middle;
+}
+.yellowRoundBox .table .th{
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
