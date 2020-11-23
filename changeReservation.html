@@ -5,8 +5,9 @@
     <title>ParkBentley</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/clock.css" />
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/makeReservation.css" />
+    <link rel="stylesheet" href="./css/calendar.css" />
+
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
 </head>
 
@@ -14,10 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <nav class="loginText">
         <li><a href="./login.html">Login</a></li>
-        <li><a href="./join.html">Join</a></li>
+         <li><a href="./join.html">join</a></li>
     </nav>
     <nav class="navbar">
-        <div class="logo">d
+        <div class="logo">
 
             <a href="./index.html">Park Bentley</a>
 
@@ -40,7 +41,7 @@
 
 
             <li><a href="">사용 통계 조회</a>
-                <!--관리자 권한일때만 접근 가능하도록 설계-->
+            <!--관리자 권한일때만 접근 가능하도록 설계-->
                 <ul>
                     <li><a href="#">월별 사용통계</a></li>
                     <li><a href="#">일별 사용통계</a></li>
@@ -48,30 +49,11 @@
             </li>
         </ul>
     </nav>
-    <div class="mainbar">
-        <div class="right">
-            <div class="js-date" id="date">
-                <h2>date</h2>
-                
-            </div>
-            <div class="js-clock">
-                <h2>00:00</h2>
-            </div>
-        </div>
-        <div class="left-top">
-            <div class = "Floor">1st Floor / 2</div>
-            <a onClick="window.location.reload()" style="cursor: pointer;"><input type="image" src="./image/reload.png"class="reload-button"> </a>
-        </div>
-        <div class="left">
-            
-            
-        </div>
+    <!-- 기본 테마 끝 -->
+    <div class="yellowBar">
+        <p class="yellowBarText">예약 변경</p>
     </div>
-
-
-    <script src="./content/main/clock.js"></script>
-    <script src="./content/main/date.js"></script>
-
+    
 </body>
 
 </html>

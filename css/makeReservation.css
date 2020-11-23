@@ -15,6 +15,14 @@
     font-weight: 800;
     cursor: default;
 }
+.timeBlock{
+    position: absolute;
+    float: left;
+    margin: 10px;
+    width: 27px;
+    height: 47px;
+    background: #C4C4C4;
+}
 .roundYellowBox .text{
     padding-left: 30px;
     vertical-align: middle;
@@ -47,7 +55,7 @@
     margin: 20px;
     margin-left: 340px;
     left: 50%;
-    top: 850px;
+    top: 810px;
 
     vertical-align: middle;
     background: #EAD08C;
