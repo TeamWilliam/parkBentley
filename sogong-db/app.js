@@ -11,21 +11,34 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
+app.use(express.static(__dirname + '/views'));
 
 app.get('/', function (req, res) {
     res.send('ROOT');
 });
 
-app.get('/list', function (req, res) {
-    var sql = 'SELECT * FROM BOARD';    
+// app.get('/list', function (req, res) {
+//     var sql = 'SELECT * FROM user';    
+//     conn.query(sql, function (err, rows, fields) {
+//         if(err) console.log('query is not excuted. select fail...\n' + err);
+//         else res.render('list.ejs', {list : rows});
+//     });
+// });
+
+app.get('/transaction1', function (req, res) {
+    var sql = 'SELECT * FROM user';    
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
-        else res.render('list.ejs', {list : rows});
+        else res.render('transaction1.ejs', {list : rows});
     });
 });
 
-app.get('/login', function (req, res) {
-    res.render('login.ejs');
+app.get('/llogin', function (req, res) {
+    res.render('llogin.ejs');
+});
+
+app.get('/makeReservation', function (req, res) {
+    res.render('makeReservation.ejs');
 });
 
 app.post('/loginAf', function (req, res) {
@@ -33,11 +46,11 @@ app.post('/loginAf', function (req, res) {
     console.log(body);
 
     var sql = 'INSERT INTO BOARD VALUES(?, ?, ?, NOW())';
-    var params = [body.id, body.title, body.content];
+    var params = [body.id, body.pw, body.content];
     console.log(sql);
     conn.query(sql, params, function(err) {
         if(err) console.log('query is not excuted. insert fail...\n' + err);
-        else res.redirect('/list');
+        else res.redirect('/transaction1');
     });
 });
 
