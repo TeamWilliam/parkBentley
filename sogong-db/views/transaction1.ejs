@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>개인기록조회</title>
+    </head>
+    <body>
+        <h2>개인기록조회</h2>
+        <table border='1'>
+            <colgroup>
+                <col width='60'><col width='200'><col width='100'>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>PW</th>
+                    <th>예약자 성명</th>
+                    <th>잔액</th>
+                    <th>이메일</th>
+                    <th>차 종류</th>
+                    <th>차 번호</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(i = 0; i < list.length; i++) { %>
+                <tr>
+                    <td><%=list[i].ID %></td>
+                    <td><%=list[i].pw %></td>
+                    <td><%=list[i].Name %></td>
+                    <td><%=list[i].Money %></td>
+                    <td><%=list[i].Email %></td>
+                    <td><%=list[i].CarType %></td>
+                    <td><%=list[i].CarNum %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table boader='1'>
+        
+        <button onclick="location.href='../llogin'">확인</button>
+    </body>
+</html>
