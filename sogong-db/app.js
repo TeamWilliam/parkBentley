@@ -33,12 +33,16 @@ app.get('/transaction1', function (req, res) {
     });
 });
 
-app.get('/llogin', function (req, res) {
-    res.render('llogin.ejs');
+app.get('/login', function (req, res) {
+    res.render('login.ejs');
 });
 
 app.get('/makeReservation', function (req, res) {
     res.render('makeReservation.ejs');
+});
+
+app.get('/myrecord', function (req, res) {
+    res.render('myrecord.ejs');
 });
 
 app.post('/loginAf', function (req, res) {
