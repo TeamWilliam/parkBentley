@@ -17,4 +17,4 @@ CREATE DATABASE my_db;
 (npm start) or (node app.js) 
 ```
 ### DB TABLE
-![db_table](https://user-images.githubusercontent.com/55631147/99898794-91cb0100-2ce7-11eb-9881-3215faeefa3c.PNG)
+![db_table](https://user-images.githubusercontent.com/55631147/100098281-2f1d6500-2ea1-11eb-90cd-7f856d48fcff.PNG)
