@@ -5,6 +5,8 @@
     <title>ParkBentley</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/enterCar.css" />
+    <!-- <link rel="stylesheet" href="./css/calendar.css" /> -->
 
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
 </head>
@@ -40,7 +42,7 @@
                     <li><a href="myrecord.html">사용 기록 조회</a></li>
                     <li><a href="#">잔액 충전</a></li>
                 </ul>
-            </li>    
+            </li>
             <li><a href="">사용 통계 조회</a>
                 <ul>
                     <li><a href="#">월별 사용통계</a></li>
@@ -49,17 +51,24 @@
             </li>
         </ul>
     </nav>
-    <!-- 기본 테마 끝 -->
+    
     <div class="yellowBar">
-        <p class="yellowBarText">사용기록 조회</p>
+        <p class="yellowBarText">입차 하기</p>
     </div>
-    <div class="js-pickDate" id="date">
-        <h2 id="year"><select id="select_year" onchange="javascript:lastday();"></select><br /></h2>
-        <h2 id="month"><select id="select_month" onchange="javascript:lastday();"></select><br /></h2>
-        <h2 id="day"><select id="select_day"></select><br /></h2>
-        
+
+    <!-- 기본 테마 끝 -->
+
+    <div class="yellowRoundBox">
+        <div class="grayBox">
+            <button type="button" class="cameraButton" style="border: none; background: none;" onclick="file_browse()">
+                <img src="./image/camera.png" width="200">
+            </button>
+        </div>
+        <div id="enterButton">
+            <button id="buttonText">입차하기</button>
+        </div>
     </div>
-    <script src="./content/record/pickDate.js"></script>
+    
     
 </body>
 
