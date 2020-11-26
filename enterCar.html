@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/enterCar.css" />
     <!-- <link rel="stylesheet" href="./css/calendar.css" /> -->
-
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
 </head>
 
@@ -60,13 +59,18 @@
 
     <div class="yellowRoundBox">
         <div class="grayBox">
-            <button type="button" class="cameraButton" style="border: none; background: none;" onclick="file_browse()">
+            <div class="cameraButton" onclick="onclick=document.all.file.click()">
                 <img src="./image/camera.png" width="200">
-            </button>
+            </div>
         </div>
-        <div id="enterButton">
-            <button id="buttonText">입차하기</button>
-        </div>
+        <!-- 번호판 이미지 업로드 -->
+        <form method="post" action="upload" id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" accept="image/*" style="display: none;">
+            
+            <div id="enterButton">
+                <button type="submit" id="buttonText">입차하기</button>
+            </div>
+        </form>
     </div>
     
     
