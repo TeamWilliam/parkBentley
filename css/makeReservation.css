@@ -1,5 +1,4 @@
 .roundYellowBox{
-
     position: absolute;
     width: 1200px;
     /* height: 470px; */
@@ -20,7 +19,7 @@
     height: 30%;
 }
 
-.time-block .time{
+.time{
     float: left;
     text-align: center;
     font-family: "Roboto";
@@ -30,7 +29,7 @@
     height: 57px;
 }
 
-.time-block .time .timeBlock{
+.timeBlock{
     /* position: absolute; */
     float: left;
     margin: 10px;
@@ -38,12 +37,12 @@
     height: 47px;
     background: #C4C4C4;
 }
-.time-block .time .clicked{
+.clicked{
     /* position: absolute; */
-    float: left;
+    /* float: left;
     margin: 10px;
     width: 27px;
-    height: 47px;
+    height: 47px; */
     background: #EAD08C;
 }
 
