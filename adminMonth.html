@@ -61,7 +61,7 @@
                 onchange="javascript:pickMonthAdmin();"></select>년 <select id="select_month"
                 onchange="javascript:pickMonthAdmin();"></select> 월
         </h2>
-        <button onclick="getMonthAdmin();">조회</button>
+        <button id="button" onclick="getMonthAdmin();">조회</button>
 
         <h1 class="js-startDate" id="termDate"></h1>
     </div>
@@ -85,14 +85,19 @@
     <script src="./content/graph/jqbar.js" type="text/javascript"></script>
 
     <script type="text/javascript">
+        //안되면 여기는 가라치자 ^^
         $(document).ready(function () {
+            $('button').click(function(){
+            //document.addEventListener("DOMContentLoaded", function($){
+            //label에 월, value에 값
             $('#bar-7').jqbar({ label: '3월', barColor: '#F5E1C2', value: 90, orientation: 'v' });
             $('#bar-8').jqbar({ label: '4월', barColor: '#F5E1C2', value: 70, orientation: 'v' });
             $('#bar-9').jqbar({ label: '5월', barColor: '#F5E1C2', value: 50, orientation: 'v' });
             $('#bar-10').jqbar({ label: '6월', barColor: '#483F37', value: 90, orientation: 'v' });
             $('#bar-11').jqbar({ label: '7월', barColor: '#F5E1C2', value: 70, orientation: 'v' });
             $('#bar-12').jqbar({ label: '8월', barColor: '#F5E1C2', value: 50, orientation: 'v' });
-        });
+            })
+              });
     </script>
 </body>
 
