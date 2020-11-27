@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/enterCar.css" />
     <!-- <link rel="stylesheet" href="./css/calendar.css" /> -->
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </head>
 
 <body>
@@ -33,7 +35,7 @@
             <li><a href="">입출차 확인</a>
                 <ul>
                     <li><a href="./enterCar.html">입차하기</a></li>
-                    <li><a href="#">출차하기</a></li>
+                    <li><a href="./departCar.html">출차하기</a></li>
                 </ul>
             </li>
             <li><a href="">마이페이지</a>
@@ -59,21 +61,57 @@
 
     <div class="yellowRoundBox">
         <div class="grayBox">
-            <div class="cameraButton" onclick="onclick=document.all.file.click()">
-                <img src="./image/camera.png" width="200">
+            <div class="car-num" id="image_container" ></div>
+            <div id="cameraButton" >
+                <label for="ex_file"><img src="./image/camera.png" width="200"></label> 
+                
             </div>
+
         </div>
-        <!-- 번호판 이미지 업로드 -->
-        <form method="post" action="upload" id="uploadForm" enctype="multipart/form-data">
-            <input type="file" name="file" id="file" onChange="uploadImgPreview();" accept="image/*" style="display: none;">
-            <!-- 번호판 이미지 서버로 전송 -> ocr인식하기 -->
+        <form method="post" enctype="multipart/form-data">
+
+            <input type="file" id="ex_file" style="display: none;" accept="image/*" onchange="setThumbnail(event);"/> 
             <div id="enterButton">
                 <button type="submit" id="buttonText" onclick="location.href='./afterEnterCar.html'">출차하기</button>
             </div>
+          
         </form>
+        
     </div>
     
-    
+    <script>
+        function setThumbnail(event) { 
+        var reader = new FileReader(); 
+        reader.onload = function(event) { 
+            var img = document.createElement("img"); 
+            img.setAttribute("src", event.target.result); 
+            document.querySelector("div#image_container").appendChild(img); 
+        }; 
+        reader.readAsDataURL(event.target.files[0]); 
+        }
+        //업로드한 파일 다운로드
+        $('#enterButton').on('click', function() {
+            var file = $("#ex_file")[0].files[0];
+            var filename = file.name;
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var base64data = reader.result;
+                //a 태그를 생성한다.
+                var link = document.createElement('a');
+                // href에 base64데이터를 넣는다.
+                link.href = base64data;
+                link.download = "linkdownload4.png";
+                document.body.appendChild(link);
+                // 클릭한다.
+                link.click();
+                // 다운로드가 되면 태그를 삭제한다.
+                document.body.removeChild(link);
+            }
+            reader.readAsDataURL(file);
+        });
+
+
+    </script>
 </body>
 
 </html>
