@@ -5,16 +5,19 @@
     <title>ParkBentley</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/payExtraFee.css" />
-    <!-- <link rel="stylesheet" href="./css/calendar.css" /> -->
+    <link rel="stylesheet" href="./css/changeReservation.css" />
+
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
 </head>
 
 <body>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <script type=text/javascript>
+
+    </script>
     <nav class="loginText">
         <li><a href="./login.html">Login</a></li>
-         <li><a href="./join.html">join</a></li>
+        <li><a href="./join.html">join</a></li>
     </nav>
     <nav class="navbar">
         <div class="logo">
@@ -43,41 +46,37 @@
                 </ul>
             </li>
             <li><a href="">사용 통계 조회</a>
-                <ul><li><a href="adminMonth.html">월별 사용통계</a></li>
+                <ul>
+                    <li><a href="adminMonth.html">월별 사용통계</a></li>
                     <li><a href="adminDay.html">일별 사용통계</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
-    
-    <div class="yellowBar">
-        <p class="yellowBarText">초과 금액 결제 하기</p>
-    </div>
-
     <!-- 기본 테마 끝 -->
+    <div class="yellowBar">
+        <p class="yellowBarText">사용기록 조회</p>
+        <h2 id="year">
+            날짜 선택&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="select_year"
+                onchange="javascript:startday();"></select>년 <select id="select_month"
+                onchange="javascript:startday();"></select> 월 <select id="select_day"></select>일 ~
+            <select id="select_lastyear" onchange="javascript:lastday();"></select>년 <select id="select_lastmonth"
+                onchange="javascript:lastday();"></select> 월 <select id="select_lastday"></select>일
+        </h2>
+        <button onclick="getDate();">조회</button>
 
-    <div class="container">
-        <div class="leftYellowBox">
-            <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-            <div class="text">사용자 이름</div>
-            <div class="text">출차 예정 시간</div>
-            <div class="text">출차 시간</div>
-
-        </div>
-        <div class="rightYellowBox">
-            <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-            <div class="text">초과 시간</div>
-            <div class="text">결재 잔액</div>
-            <div class="text">초과 금액</div>
-
-            <div id="payButton">
-                <button type="button" id="buttonText">결제하기</button>
-            </div>
-        </div>
-
+        <h1 class="js-startDate" id="termDate"></h1>
     </div>
-    
-    
+    <div class="yellowRoundBox">
+      
+        </table>
+        <div class="js-pickDate" id="date">
+            
+        </div>
+        <script src="./content/record/pickDate.js"></script>
+        <script src="./content/record/pickLastDate.js"></script>
+        <script src="./content/record/getDate.js"></script>
+
 </body>
 
 </html>
