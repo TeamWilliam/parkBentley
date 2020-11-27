@@ -12,7 +12,7 @@ License: http://www.egrappler.com/license.
                 animationSpeed: 2000,
                 barLength: 200,
                 orientation: 'h',
-                barWidth: 10,
+                barWidth: 20,
                 barColor: 'red',
                 label: '&nbsp;',
                 value: 100
@@ -72,7 +72,7 @@ License: http://www.egrappler.com/license.
                                 var percent = parseInt(currentWidth / settings.barLength * 100);
                                 if (isNaN(percent))
                                     percent = 0;
-                                progressContainer.find('.bar-percent').html(percent + '%');
+                                progressContainer.find('.bar-percent').html(percent);
                             }
                         });
                     }
@@ -85,7 +85,7 @@ License: http://www.egrappler.com/license.
                                 var percent = parseInt((settings.barLength - parseInt(currentValue)) / settings.barLength * 100);
                                 if (isNaN(percent))
                                     percent = 0;
-                                progressContainer.find('.bar-percent').html(Math.abs(percent) + '%');
+                                progressContainer.find('.bar-percent').html(Math.abs(percent));
                             }
                         });
 

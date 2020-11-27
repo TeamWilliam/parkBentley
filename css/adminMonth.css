@@ -14,12 +14,12 @@
 .jqbar.vertical span
 {
     display: block;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: bold;
 }
 .jqbar.vertical .bar-percent
 {
-    font-size: 11px;
+    font-size: 20px;
     font-weight: bold;
     position: relative;
     height: 20px;
