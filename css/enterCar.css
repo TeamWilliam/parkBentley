@@ -24,6 +24,12 @@
     background: #C4C4C4;
     border-radius: 46px;
 }
+.yellowRoundBox .grayBox .car-num{
+    position: absolute; 
+    z-index: 2;
+    margin: 50px;
+    margin-top: 100px;
+}
 .yellowRoundBox #enterButton button{
     /* position: absolute; */
     float: right;
@@ -48,9 +54,10 @@
     line-height: 50px;
     color: #483F37;
 }
-.cameraButton{
+#cameraButton{
+    position: absolute; 
+    z-index: 1;
     vertical-align: middle;
     margin-top: 100px;
-    margin-left: 40%;
-
+    margin-left: 30%;
 }
