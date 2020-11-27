@@ -1,31 +1,10 @@
-CREATE TABLE CAR
-(
-   CarNum                INT(4) unsigned zerofill  NOT NULL ,
-   State                 VARCHAR(18)  NULL ,
-   Sit                   INT  NOT NULL ,
-   Floor                 VARCHAR(3)  NOT NULL ,
-   ID                    VARCHAR(18)  NOT NULL 
-);
-
-
-
-CREATE UNIQUE INDEX XPKCAR ON CAR
-(CarNum  ASC);
-
-
-
-ALTER TABLE CAR
-   ADD CONSTRAINT  XPKCAR PRIMARY KEY (CarNum);
-
-
-
 CREATE TABLE CARTRANSACTION
 (
-   ReservationNum        INT  NOT NULL ,
-   R_StartTime           DATE  NULL ,
-   R_EndTime             DATE  NULL ,
-   PaidMoney             INT  NULL ,
-   OverPrice             INT  NULL 
+	ReservationNum        INT  NOT NULL ,
+	R_StartTime           time  NULL ,
+	R_EndTime             time  NULL ,
+	PaidMoney             INT  NULL ,
+	OverPrice             INT  NULL 
 );
 
 
@@ -36,50 +15,34 @@ CREATE UNIQUE INDEX XPKCARTRANSACTION ON CARTRANSACTION
 
 
 ALTER TABLE CARTRANSACTION
-   ADD CONSTRAINT  XPKCARTRANSACTION PRIMARY KEY (ReservationNum);
+	ADD CONSTRAINT  XPKCARTRANSACTION PRIMARY KEY (ReservationNum);
 
 
 
 CREATE TABLE HISTORY
 (
-   Date                  CHAR(18)  NULL ,
-   ReservationNum        INT  NOT NULL 
+	Date                  CHAR(18)  NULL ,
+	ReservationNum        INT  NOT NULL ,
+	CarNum                INT(4) unsigned zerofill  NOT NULL 
 );
 
 
 
 CREATE UNIQUE INDEX XPKHISTORY ON HISTORY
-(ReservationNum  ASC);
+(ReservationNum  ASC,CarNum  ASC);
 
 
 
 ALTER TABLE HISTORY
-   ADD CONSTRAINT  XPKHISTORY PRIMARY KEY (ReservationNum);
-
-
-
-CREATE TABLE PARKINGLOT
-(
-   Floor                 VARCHAR(3)  NOT NULL 
-);
-
-
-
-CREATE UNIQUE INDEX XPKPARKINGLOT ON PARKINGLOT
-(Floor  ASC);
-
-
-
-ALTER TABLE PARKINGLOT
-   ADD CONSTRAINT  XPKPARKINGLOT PRIMARY KEY (Floor);
+	ADD CONSTRAINT  XPKHISTORY PRIMARY KEY (ReservationNum,CarNum);
 
 
 
 CREATE TABLE PARKINGSPOT
 (
-   Sit                   INT  NOT NULL ,
-   Status                VARCHAR(18)  NOT NULL ,
-   Floor                 VARCHAR(3)  NOT NULL 
+	Sit                   INT  NOT NULL ,
+	Status                VARCHAR(18)   DEFAULT  '예약 완료' NOT NULL ,
+	Floor                 VARCHAR(3)  NOT NULL 
 );
 
 
@@ -90,42 +53,45 @@ CREATE UNIQUE INDEX XPKPARKINGSPOT ON PARKINGSPOT
 
 
 ALTER TABLE PARKINGSPOT
-   ADD CONSTRAINT  XPKPARKINGSPOT PRIMARY KEY (Sit,Floor);
+	ADD CONSTRAINT  XPKPARKINGSPOT PRIMARY KEY (Sit,Floor);
 
 
 
 CREATE TABLE RESERVATION
 (
-   ReservationNum        INT  NOT NULL ,
-   StartTime             DATE  NULL ,
-   EndTime               DATE  NULL ,
-   Price                 INT  NULL ,
-   CarNum                INT(4) unsigned zerofill  NOT NULL ,
-   Sit                   INT  NOT NULL ,
-   Floor                 VARCHAR(3)  NOT NULL 
+	ReservationNum        INT  NOT NULL ,
+	StartTime             Time  NULL ,
+	EndTime               Time  NULL ,
+	Price                 INT  NULL ,
+	ID                    VARCHAR(18)  NOT NULL ,
+	CarNum                INT(4) unsigned zerofill  NOT NULL ,
+	UseStatus             VARCHAR(18)  NULL ,
+	ReservationDate       date  NULL ,
+	Sit                   INT  NOT NULL ,
+	Floor                 VARCHAR(3)  NOT NULL 
 );
 
 
 
 CREATE UNIQUE INDEX XPKRESERVATION ON RESERVATION
-(ReservationNum  ASC);
+(ReservationNum  ASC,CarNum  ASC);
 
 
 
 ALTER TABLE RESERVATION
-   ADD CONSTRAINT  XPKRESERVATION PRIMARY KEY (ReservationNum);
+	ADD CONSTRAINT  XPKRESERVATION PRIMARY KEY (ReservationNum,CarNum);
 
 
 
 CREATE TABLE USER
 (
-   ID                    VARCHAR(18)  NOT NULL ,
-   PW                    INT  NOT NULL ,
-   Name                  VARCHAR(18)  NULL ,
-   Money                 INT   DEFAULT  0 NULL ,
-   Email                 VARCHAR(30)  NULL ,
-   CarType               VARCHAR(18)  NULL ,
-   CarNum                INT(4) unsigned zerofill  NOT NULL 
+	ID                    VARCHAR(18)  NOT NULL ,
+	PW                    INT  NOT NULL ,
+	Name                  VARCHAR(18)  NULL ,
+	Money                 INT   DEFAULT  0 NULL ,
+	Email                 VARCHAR(30)  NULL ,
+	CarType               VARCHAR(18)  NULL ,
+	CarNum                INT(4) unsigned zerofill  NOT NULL 
 );
 
 
@@ -136,49 +102,24 @@ CREATE UNIQUE INDEX XPKUSER ON USER
 
 
 ALTER TABLE USER
-   ADD CONSTRAINT  XPKUSER PRIMARY KEY (ID,CarNum);
-
-
-
-ALTER TABLE CAR
-   ADD (CONSTRAINT  R_8 FOREIGN KEY (Sit,Floor) REFERENCES PARKINGSPOT(Sit,Floor));
-
-
-
-ALTER TABLE CAR
-   ADD (CONSTRAINT  R_14 FOREIGN KEY (ID,CarNum) REFERENCES USER(ID,CarNum));
+	ADD CONSTRAINT  XPKUSER PRIMARY KEY (ID,CarNum);
 
 
 
 ALTER TABLE HISTORY
-   ADD (CONSTRAINT  R_11 FOREIGN KEY (ReservationNum) REFERENCES RESERVATION(ReservationNum));
+	ADD (CONSTRAINT  R_11 FOREIGN KEY (ReservationNum,CarNum) REFERENCES RESERVATION(ReservationNum,CarNum));
 
 
 
 ALTER TABLE HISTORY
-   ADD (CONSTRAINT  R_12 FOREIGN KEY (ReservationNum) REFERENCES CARTRANSACTION(ReservationNum));
-
-
-
-ALTER TABLE PARKINGSPOT
-   ADD (CONSTRAINT  R_7 FOREIGN KEY (Floor) REFERENCES PARKINGLOT(Floor));
+	ADD (CONSTRAINT  R_12 FOREIGN KEY (ReservationNum) REFERENCES CARTRANSACTION(ReservationNum));
 
 
 
 ALTER TABLE RESERVATION
-   ADD (CONSTRAINT  R_2 FOREIGN KEY (CarNum) REFERENCES CAR(CarNum));
+	ADD (CONSTRAINT  R_13 FOREIGN KEY (Sit,Floor) REFERENCES PARKINGSPOT(Sit,Floor));
 
 
 
 ALTER TABLE RESERVATION
-   ADD (CONSTRAINT  R_13 FOREIGN KEY (Sit,Floor) REFERENCES PARKINGSPOT(Sit,Floor));
-   
-   
-/* Reservation, carTransaction table column 변경 */
-alter table reservation modify StartTime time;
-alter table reservation modify EndTime time;
-alter table cartransaction modify r_starttime time;
-alter table cartransaction modify r_endtime time;
-alter table reservation add column ReservationDate date;
-alter table reservation add UseStatus Varchar(10);
-alter table reservation modify UseStatus varchar(10) default '예약완료';
+	ADD (CONSTRAINT  R_16 FOREIGN KEY (ID,CarNum) REFERENCES USER(ID,CarNum));
