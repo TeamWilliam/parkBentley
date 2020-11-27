@@ -5,7 +5,7 @@
     <title>ParkBentley</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/enterCar.css" />
+    <link rel="stylesheet" href="./css/afterEnterCar.css" />
     <!-- <link rel="stylesheet" href="./css/calendar.css" /> -->
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
 </head>
@@ -52,25 +52,17 @@
     </nav>
     
     <div class="yellowBar">
-        <p class="yellowBarText">입차 하기</p>
+        <p class="yellowBarText">출차 하기</p>
     </div>
 
     <!-- 기본 테마 끝 -->
 
     <div class="yellowRoundBox">
-        <div class="grayBox">
-            <div class="cameraButton" onclick="onclick=document.all.file.click()">
-                <img src="./image/camera.png" width="200">
-            </div>
-        </div>
-        <!-- 번호판 이미지 업로드 -->
-        <form method="post" action="upload" id="uploadForm" enctype="multipart/form-data">
-            <input type="file" name="file" id="file" onChange="uploadImgPreview();" accept="image/*" style="display: none;">
-            <!-- 번호판 이미지 서버로 전송 -> ocr인식하기 -->
-            <div id="enterButton">
-                <button type="submit" id="buttonText" onclick="location.href='./afterEnterCar.html'">입차하기</button>
-            </div>
-        </form>
+        <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="text">결제가 완료되었습니다.</div>
+        <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="text">안녕히 가세요.</div>
+        <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
     </div>
     
     

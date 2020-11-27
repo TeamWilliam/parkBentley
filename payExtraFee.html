@@ -5,7 +5,7 @@
     <title>ParkBentley</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/enterCar.css" />
+    <link rel="stylesheet" href="./css/payExtraFee.css" />
     <!-- <link rel="stylesheet" href="./css/calendar.css" /> -->
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
 </head>
@@ -52,25 +52,30 @@
     </nav>
     
     <div class="yellowBar">
-        <p class="yellowBarText">입차 하기</p>
+        <p class="yellowBarText">초과 금액 결제 하기</p>
     </div>
 
     <!-- 기본 테마 끝 -->
 
-    <div class="yellowRoundBox">
-        <div class="grayBox">
-            <div class="cameraButton" onclick="onclick=document.all.file.click()">
-                <img src="./image/camera.png" width="200">
+    <div class="container">
+        <div class="leftYellowBox">
+            <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="text">사용자 이름</div>
+            <div class="text">출차 예정 시간</div>
+            <div class="text">출차 시간</div>
+
+        </div>
+        <div class="rightYellowBox">
+            <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="text">초과 시간</div>
+            <div class="text">결재 잔액</div>
+            <div class="text">초과 금액</div>
+
+            <div id="payButton">
+                <button type="button" id="buttonText">결제하기</button>
             </div>
         </div>
-        <!-- 번호판 이미지 업로드 -->
-        <form method="post" action="upload" id="uploadForm" enctype="multipart/form-data">
-            <input type="file" name="file" id="file" onChange="uploadImgPreview();" accept="image/*" style="display: none;">
-            <!-- 번호판 이미지 서버로 전송 -> ocr인식하기 -->
-            <div id="enterButton">
-                <button type="submit" id="buttonText" onclick="location.href='./afterEnterCar.html'">입차하기</button>
-            </div>
-        </form>
+
     </div>
     
     

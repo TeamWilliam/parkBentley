@@ -1,0 +1,25 @@
+.yellowRoundBox{
+    position: absolute;
+    width: 90%;
+    /* height: 500px; */
+    left: 50%;
+    top: 323px;
+    /* margin: 50px; */
+    margin-left: -46%;
+    /* float: left; */
+    background: #f2f1f1;
+    border: 15px solid #EAD08C;
+    border-radius: 58px;
+}
+
+.yellowRoundBox .text{
+    margin: 50px;
+    /* float: left; */
+    font-family:"Red Rose";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    color: #483F37;
+}

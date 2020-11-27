@@ -11,18 +11,38 @@
     border: 3px solid #EAD08C;
     border-radius: 58px;
 }
+.yellowRoundBox .text{
+    margin: 32px;
+    text-align: center;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 42px;
+    
+    color: #483F37;
+}
 .yellowRoundBox .grayBox{
-    /* position: absolute; */
     float: left;
-    width: 73%;
-    height: 85%;
-    /* left: 91px;
-    top: 398px; */
-    /* vertical-align: middle; */
-
-    margin: 30px;
+    width: 70%;
+    height: 300px;
+    text-align: center;
+    margin: 0px 30px 30px 30px;
     background: #C4C4C4;
     border-radius: 46px;
+}
+input{
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 300px;
+    text-align: center;
+    /* identical to box height */
+    margin-top: 15%;
+    color: #919191;
+    background-color: #C4C4C4;
+    border: none;
 }
 .yellowRoundBox #enterButton button{
     /* position: absolute; */
@@ -30,7 +50,7 @@
     width: 20%;
     height: 217px;
     /* margin: 20px; */
-    margin-top: 130px;
+    margin-top: 50px;
     margin-right: 30px;
     
     background: #EAD08C;
@@ -47,10 +67,4 @@
     font-size: 40px;
     line-height: 50px;
     color: #483F37;
-}
-.cameraButton{
-    vertical-align: middle;
-    margin-top: 100px;
-    margin-left: 40%;
-
 }
