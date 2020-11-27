@@ -45,7 +45,12 @@ app.get('/myrecord', function (req, res) {
 
 /* ------------------------------------개인기록 상세 조회 --------------------------------*/
 app.get('/checkMyRecord', function (req, res) {
-    res.render('checkMyRecord.ejs');
+    var sql = 'SELECT ReservationDate, StartTime, EndTime, ReservationNum, CarNum, Price FROM Reservation';
+    conn.query(sql, function (err, rows, fields) {
+        if(err) console.log('query is not excuted. select fail...\n' + err);
+        else res.render('checkMyRecord.ejs', {list : rows});
+    });
+    
 });
 
 /* -------------------------------------------------------------------------------------- */
