@@ -41,9 +41,22 @@ app.get('/makeReservation', function (req, res) {
     res.render('makeReservation.ejs');
 });
 
+/* -----------------------------개인 기록 조회--------------------------------------- */
 app.get('/myrecord', function (req, res) {
     res.render('myrecord.ejs');
 });
+
+app.post('/myrecordAF', function (req, res) {
+    var body = req.body;
+    console.log(body);
+
+    var sql = 'SELECT ReservationDate, StartTime, EndTime, ReservationNum, UseStatus FROM Reservation';
+    conn.query(sql, function (err, rows, fields) {
+        if(err) console.log('query is not excuted. select fail...\n' + err);
+        else res.render('/', {list : rows});
+    });
+});
+/* -------------------------------------------------------------------------------------- */
 
 app.post('/loginAf', function (req, res) {
     var body = req.body;
