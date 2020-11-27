@@ -4,6 +4,7 @@ const pickDateContainer = document.querySelector(".js-pickDate"),
 var start_year = "2015";// 시작할 년도 
 var today = new Date();
 var today_year = today.getFullYear();
+var selectValue = document.getElementById('select_year');
 var index = 0;
 for (var y = today_year; y >= start_year; y--) { //start_year ~ 현재 년도 
     document.getElementById('select_year').options[index] = new Option(y, y); 
