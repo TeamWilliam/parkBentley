@@ -1,5 +1,5 @@
-const pickDateContainer = document.querySelector(".js-pickDate"),
-    pickDateTitle = pickDateContainer.querySelector("h2");
+//const pickDateContainer = document.querySelector(".js-pickDate"),
+//    pickDateTitle = pickDateContainer.querySelector("h2");
 
 var start_year = "2015";// 시작할 년도 
 var today = new Date();
