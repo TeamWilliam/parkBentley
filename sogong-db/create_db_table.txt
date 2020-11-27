@@ -181,3 +181,4 @@ alter table cartransaction modify r_starttime time;
 alter table cartransaction modify r_endtime time;
 alter table reservation add column reservationdate date;
 alter table reservation add UseStatus Varchar(10);
+alter table reservation modify UseStatus varchar(10) default '예약완료';
