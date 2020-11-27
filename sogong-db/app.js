@@ -17,14 +17,6 @@ app.get('/', function (req, res) {
     res.send('ROOT');
 });
 
-// app.get('/list', function (req, res) {
-//     var sql = 'SELECT * FROM user';    
-//     conn.query(sql, function (err, rows, fields) {
-//         if(err) console.log('query is not excuted. select fail...\n' + err);
-//         else res.render('list.ejs', {list : rows});
-//     });
-// });
-
 app.get('/transaction1', function (req, res) {
     var sql = 'SELECT * FROM user';    
     conn.query(sql, function (err, rows, fields) {
@@ -43,19 +35,19 @@ app.get('/makeReservation', function (req, res) {
 
 /* -----------------------------개인 기록 조회--------------------------------------- */
 app.get('/myrecord', function (req, res) {
-    res.render('myrecord.ejs');
-});
-
-app.post('/myrecordAF', function (req, res) {
-    var body = req.body;
-    console.log(body);
-
     var sql = 'SELECT ReservationDate, StartTime, EndTime, ReservationNum, UseStatus FROM Reservation';
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
-        else res.render('/', {list : rows});
+        else res.render('myrecord.ejs', {list : rows});
     });
 });
+/* -------------------------------------------------------------------------------------- */
+
+/* ------------------------------------개인기록 상세 조회 --------------------------------*/
+app.get('/checkMyRecord', function (req, res) {
+    res.render('checkMyRecord.ejs');
+});
+
 /* -------------------------------------------------------------------------------------- */
 
 app.post('/loginAf', function (req, res) {
