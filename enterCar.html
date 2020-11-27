@@ -59,20 +59,42 @@
 
     <div class="yellowRoundBox">
         <div class="grayBox">
+            <div id="image_container" style="vertical-align: middle;"></div>
             <div class="cameraButton" onclick="onclick=document.all.file.click()">
+                
                 <img src="./image/camera.png" width="200">
             </div>
         </div>
         <!-- 번호판 이미지 업로드 -->
-        <form method="post" action="upload" id="uploadForm" enctype="multipart/form-data">
-            <input type="file" name="file" id="file" onChange="uploadImgPreview();" accept="image/*" style="display: none;">
-            <!-- 번호판 이미지 서버로 전송 -> ocr인식하기 -->
+        <form method="post" action="index.html" enctype="multipart/form-data">
+
+            <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);"/> 
             <div id="enterButton">
                 <button type="submit" id="buttonText" onclick="location.href='./afterEnterCar.html'">입차하기</button>
             </div>
+          
         </form>
+        
+        <!-- <form method="post" action="file.doc" id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" onChange="uploadImgPreview();" accept="image/*">
+            
+            <div id="enterButton">
+                <button type="submit" id="buttonText" onclick="location.href='./afterEnterCar.html'">입차하기</button>
+            </div>
+        </form> -->
     </div>
-    
+    <script>
+        //이미지 미리보기
+        function setThumbnail(event) { 
+        var reader = new FileReader(); 
+        reader.onload = function(event) { 
+            var img = document.createElement("img"); 
+            img.setAttribute("src", event.target.result); 
+            document.querySelector("div#image_container").appendChild(img); 
+        }; 
+        reader.readAsDataURL(event.target.files[0]); 
+    }
+    </script>
     
 </body>
 

@@ -42,15 +42,27 @@ html, body {
     padding: 20px;
     background: rgb(242, 241, 241);
   }
-  .clicked-date .cal-mon {
+  .clicked-date .sel-date{
+    width: 90%;
+    height: 20%;
+  }
+  .clicked-date .sel-date .cal-all {
+    float: left;
     font-size: 24px;
+    margin: 10px;
   }
 
-  .clicked-date .cal-day {
+  .clicked-date .sel-date .cal-day {
+    float: left;
     font-size: 24px;
+    margin: 10px;
+
   }
-  .clicked-date .cal-date {
+  .clicked-date .sel-date .cal-date {
+    float: left;
     font-size: 24px;
+    margin: 10px;
+
   }
 
   .roundYellowBox .calendar-box {
@@ -116,7 +128,7 @@ html, body {
     cursor: pointer;
   }
   .cal-table td.today {
-    /* background: #ffd255; */
+    background: #c4c4c4;
     border-radius: 50%;
     color: #000000;
   }

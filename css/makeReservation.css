@@ -15,14 +15,38 @@
     font-weight: 800;
     cursor: default;
 }
-.timeBlock{
-    position: absolute;
+.time-block{
+    width: 65%;
+    height: 30%;
+}
+
+.time-block .time{
+    float: left;
+    text-align: center;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 20px;
+    width: 37px;
+    height: 57px;
+}
+
+.time-block .time .timeBlock{
+    /* position: absolute; */
     float: left;
     margin: 10px;
     width: 27px;
     height: 47px;
     background: #C4C4C4;
 }
+.time-block .time .clicked{
+    /* position: absolute; */
+    float: left;
+    margin: 10px;
+    width: 27px;
+    height: 47px;
+    background: #EAD08C;
+}
+
 .roundYellowBox .text{
     padding-left: 30px;
     vertical-align: middle;
