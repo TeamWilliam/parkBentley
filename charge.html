@@ -60,26 +60,40 @@
     
     <div class="container">
         <div class="leftYellowBox">
+            <form name ="selectMoney">
             <div class="text">충전할 금액을 선택하세요.</div>
-            <div class="text"><input type="radio" name="chk_info" value="1000">1,000원</div>
-            <div class="text"><input type="radio" name="chk_info" value="5000">5,000원</div>
-            <div class="text"><input type="radio" name="chk_info" value="10000">10,000원</div>
-            <div class="text"><input type="radio" name="chk_info" value="50000">50,000원</div>
-           
-
+            <div class="text"><input type="radio" name="chk_info" value="1000" onchange="radio_chk(event);">1000원</div>
+            <div class="text"><input type="radio" name="chk_info" value="5000" onchange="radio_chk(event);">5000원</div>
+            <div class="text"><input type="radio" name="chk_info" value="10000" onchange="radio_chk(event);">10000원</div>
+            <div class="text"><input type="radio" name="chk_info" value="50000" onchange="radio_chk(event);">50000원</div>
+        </form>
         </div>
         <div class="rightYellowBox">
-            <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-            <div class="text">초과 시간</div>
-            <div class="text">결재 잔액</div>
-            <div class="text">초과 금액</div>
+            <h2 style="display: inline;">name</h2><h2 style="display: inline;">님</h2> <h2 >현재 잔액은</h2>
+            <h2 id = "money" style="display: inline;">00</h2> <!--현재 잔액 처음부터 떠 있음!-->
+            <h2 style="display: inline;">원 입니다.</h2> 
+            <div class = "js-chargePlus" id = "moneyPlus">
+                <h2>
+
+            </h2>
+
+            </div>
+            <div>&nbsp;</div>
+            
 
             <div id="payButton">
-                <button type="button" id="buttonText">충전하기</button>
+                <button type="button" id="buttonText" onclick=chargeComplete()>충전하기</button>
             </div>
         </div>
 
     </div>
+    <script>
+    function chargeComplete() {
+        alert("충전되었습니다!");
+        window.location.href = "index.html";
+      }
+    </script>
+    <script src="./content/charge/charge.js"></script>
 </body>
 
 </html>
