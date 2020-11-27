@@ -12,7 +12,7 @@
 
 <body>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <script type= text/javascript>
+    <script type=text/javascript>
 
     </script>
     <nav class="loginText">
@@ -47,8 +47,8 @@
             </li>
             <li><a href="">사용 통계 조회</a>
                 <ul>
-                    <li><a href="#">월별 사용통계</a></li>
-                    <li><a href="#">일별 사용통계</a></li>
+                    <li><a href="adminMonth.html">월별 사용통계</a></li>
+                    <li><a href="adminDay.html">일별 사용통계</a></li>
                 </ul>
             </li>
         </ul>
@@ -59,10 +59,9 @@
         <h2 id="year">
             날짜 선택&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="select_year"
                 onchange="javascript:startday();"></select>년 <select id="select_month"
-                onchange="javascript:startday();"></select> 월 <select id="select_day"></select>일 ~ 
-                <select
-                id="select_lastyear" onchange="javascript:lastday();"></select>년 <select id="select_lastmonth"
-                onchange="javascript:lastday();"></select> 월 <select id="select_lastday"></select>일 
+                onchange="javascript:startday();"></select> 월 <select id="select_day"></select>일 ~
+            <select id="select_lastyear" onchange="javascript:lastday();"></select>년 <select id="select_lastmonth"
+                onchange="javascript:lastday();"></select> 월 <select id="select_lastday"></select>일
         </h2>
         <button onclick="getDate();">조회</button>
 
@@ -70,48 +69,56 @@
     </div>
     <div class="yellowRoundBox">
         <table class="table">
-            <th>날짜</th>
-            <th>시간</th>
-            <th>예약번호</th>
-            <th>이용 여부</th>
-            <th>상세정보</th>
-            <tr><!-- 첫번째 줄 시작 -->
+            <thead>
+                <tr>
+                    <th>날짜</th>
+                    <th>예약 시간</th>
+                    <th>예약 번호</th>
+                    <th>이용 여부</th>
+                    <th>상세정보</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <!-- 첫번째 줄 시작 -->
                 <td>첫번째 칸</td>
                 <td>두번째 칸</td>
                 <td>세번째 칸</td>
                 <td>네번째 칸</td>
                 <td><button type="button" onclick="location.href='./checkMyRecord.html'">확인하기</button></td>
             </tr><!-- 첫번째 줄 끝 -->
-            <tr><!-- 두번째 줄 시작 -->
+            <tr>
+                <!-- 두번째 줄 시작 -->
                 <td>첫번째 칸</td>
                 <td>두번째 칸</td>
                 <td>세번째 칸</td>
                 <td>네번째 칸</td>
                 <td><button type="button" onclick="location.href='./checkMyRecord.html'">확인하기</button></td>
             </tr><!-- 두번째 줄 끝 -->
-            <tr><!-- 두번째 줄 시작 -->
+            <tr>
+                <!-- 두번째 줄 시작 -->
                 <td>첫번째 칸</td>
                 <td>두번째 칸</td>
                 <td>세번째 칸</td>
                 <td>네번째 칸</td>
                 <td><button type="button" onclick="location.href='./checkMyRecord.html'">확인하기</button></td>
             </tr><!-- 두번째 줄 끝 -->
-            <tr><!-- 두번째 줄 시작 -->
+            <tr>
+                <!-- 두번째 줄 시작 -->
                 <td>첫번째 칸</td>
                 <td>두번째 칸</td>
                 <td>세번째 칸</td>
                 <td>네번째 칸</td>
                 <td><button type="button" onclick="location.href='./checkMyRecord.html'">확인하기</button></td>
             </tr><!-- 두번째 줄 끝 -->
-            
+        </tbody>
         </table>
-    <div class="js-pickDate" id="date">
-
-
-    </div>
-    <script src="./content/record/pickDate.js"></script>
-    <script src="./content/record/pickLastDate.js"></script>
-    <script src="./content/record/getDate.js"></script>
+        <div class="js-pickDate" id="date">
+            
+        </div>
+        <script src="./content/record/pickDate.js"></script>
+        <script src="./content/record/pickLastDate.js"></script>
+        <script src="./content/record/getDate.js"></script>
 
 </body>
 
