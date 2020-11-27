@@ -5,7 +5,7 @@
     <title>ParkBentley</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/changeReservation.css" />
+    <link rel="stylesheet" href="./css/charge.css" />
 
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
 </head>
@@ -56,12 +56,29 @@
     <!-- 기본 테마 끝 -->
     <div class="yellowBar">
         <p class="yellowBarText">잔액 충전 하기</p>
-        
-
-        <div class="yellowRoundBox">
-
+    </div>
+    
+    <div class="container">
+        <div class="leftYellowBox">
+            <div class="text">충전할 금액을 선택하세요.</div>
+            <div class="text"><input type="radio" name="chk_info" value="1000">1,000원</div>
+            <div class="text"><input type="radio" name="chk_info" value="5000">5,000원</div>
+            <div class="text"><input type="radio" name="chk_info" value="10000">10,000원</div>
+            <div class="text"><input type="radio" name="chk_info" value="50000">50,000원</div>
+           
 
         </div>
+        <div class="rightYellowBox">
+            <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="text">초과 시간</div>
+            <div class="text">결재 잔액</div>
+            <div class="text">초과 금액</div>
+
+            <div id="payButton">
+                <button type="button" id="buttonText">충전하기</button>
+            </div>
+        </div>
+
     </div>
 </body>
 
