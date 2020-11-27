@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ParkBentley</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/makeReservation.css" />
+    <link rel="stylesheet" href="./css/calendar.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <nav class="loginText">
+        <li><a href="./login.html">Login</a></li>
+         <li><a href="./join.html">join</a></li>
+    </nav>
+    <nav class="navbar">
+        <div class="logo">
+
+            <a href="./index.html">Park Bentley</a>
+
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="">서비스 이용</a>
+                <ul>
+                    <li><a href="./makeReservation.html">예약하기</a></li>
+                    <li><a href="./changeReservation.html">예약변경</a></li>
+                    <li><a href="#">예약확인</a></li>
+                </ul>
+            </li>
+            <li><a href="">입출차 확인</a>
+                <ul>
+                    <li><a href="./enterCar.html">입차하기</a></li>
+                    <li><a href="#">출차하기</a></li>
+                </ul>
+            </li>
+            <li><a href="">마이페이지</a>
+                <ul>
+                    <li><a href="myrecord.html">사용 기록 조회</a></li>
+                    <li><a href="#">잔액 충전</a></li>
+                </ul>
+            </li>
+            <li><a href="">사용 통계 조회</a>
+            <!--관리자 권한일때만 접근 가능하도록 설계-->
+                <ul>
+                    <li><a href="#">월별 사용통계</a></li>
+                    <li><a href="#">일별 사용통계</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- 기본 테마 끝 -->
+    <div class="yellowBar">
+        <p class="yellowBarText">예약 하기</p>
+    </div>
+    <!-- <div class="roundYellowBox">
+    </div> -->
+    <div class="container">
+        <div class="roundYellowBox clearfix">
+          <!--날짜 선택하는 달력-->
+          <div class="calendar-box">
+              <div class="ctr-box clearfix">
+                <button type="button" title="prev" class="btn-cal prev">
+                </button>
+                <span class="cal-month"></span>
+                <span class="cal-year"></span>
+                <button type="button" title="next" class="btn-cal next">
+                </button>
+              </div>
+              <table class="cal-table">
+                <thead>
+                  <tr>
+                    <th>S</th>
+                    <th>M</th>
+                    <th>T</th>
+                    <th>W</th>
+                    <th>T</th>
+                    <th>F</th>
+                    <th>S</th>
+                  </tr>
+                </thead>
+                <tbody class="cal-body"></tbody>
+              </table>
+          </div>
+          <!-- 선택한 날짜 출력 -->
+          <div class="clicked-date">
+              <p class="cal-mon"></p>
+              <p class="cal-date"></p>
+              <p class="cal-day"></p>
+              <div class="timeBlock"></div>
+              <!-- <input id='name' onchange='printName()'/>
+              <div id='result'></div> -->
+              <div>
+                  <div class="timeBlock"></div>
+              <div class="timeBlock"></div>
+              <div class="timeBlock"></div>
+              </div>
+              
+          </div>
+          
+        </div>
+        <!-- // .my-calendar -->
+        
+    </div>
+    <div id="nextYellowButton">
+        <!-- 입력한 값이랑 같이 넘겨주기 -->
+        <button id="buttonText" onclick="openPopup()"> 변경 완료 </button>
+    </div>
+
+    <script src="./content/service/calendar.js"></script>
+    <script src="./content/service/makeReservation.js"></script>
+    <script>
+        function openPopup(){
+ 
+            var _width = '400';
+            var _height = '200';
+
+            // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+            var _left = Math.ceil(( window.screen.width - _width )/2);
+            var _top = Math.ceil(( window.screen.height - _height )/2); 
+
+            window.open('./completeReservation.html', 'popup-test', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+        }
+
+    </script>
+
+
+</body>
+
+</html>

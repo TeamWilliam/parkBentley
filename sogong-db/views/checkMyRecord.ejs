@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ParkBentley</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/checkMyReservation.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/join.css" />
+    <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
+    <style>
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  td {
+    border-bottom: 1px solid #444444;
+    
+  }
+        .line{border-bottom:1px solid #483F37;}
+      </style>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <nav class="loginText">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="join.html">Join</a></li>
+    </nav>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">Park Bentley</a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="">서비스 이용</a>
+                <ul>
+                    <li><a href="./makeReservation.html">예약하기</a></li>
+                    <li><a href="./changeReservation.html">예약변경</a></li>
+                    <li><a href="#">예약확인</a></li>
+                </ul>
+            </li>
+            <li><a href="">입출차 확인</a>
+                <ul>
+                    <li><a href="#">입차하기</a></li>
+                    <li><a href="#">출차하기</a></li>
+                </ul>
+            </li>
+            <li><a href="">마이페이지</a>
+                <ul>
+                    <li><a href="myrecord.html">사용 기록 조회</a></li>
+                    <li><a href="#">잔액 충전</a></li>
+                </ul>
+            </li>
+
+
+            <li><a href="">사용 통계 조회</a>
+                <ul>
+                    <li><a href="adminMonth.html">월별 사용통계</a></li>
+                    <li><a href="adminDay.html">일별 사용통계</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="yellowBar">
+        <p class="yellowBarText">사용기록 조회</p>
+        <div class="yellowRoundBox">
+            <table class="table" border="0">
+                <caption>Transaction</caption>
+                <tr><!-- 첫번째 줄 시작 -->
+                    <td class="line">예약 날짜</td>
+                    <td class="line"><%=list[0].ReservationDate %></td>
+                </tr><!-- 첫번째 줄 끝 -->
+                <tr><!-- 두번째 줄 시작 -->
+                    <td class="line">예약 시간</td>
+                    <td class="line"><%=list[0].StartTime %>~ <%=list[0].EndTime %></td>
+                </tr><!-- 두번째 줄 끝 -->
+                <tr><!-- 두번째 줄 시작 -->
+                    <td class="line">예약 번호</td>
+                    <td class="line"><%=list[0].ReservationNum %></td>
+                </tr><!-- 두번째 줄 끝 -->
+                <tr><!-- 두번째 줄 시작 -->
+                    <td class="line">차량 번호</td>
+                    <td class="line"><%=list[0].CarNum %></td>
+                </tr><!-- 두번째 줄 끝 -->
+                <tr><!-- 두번째 줄 시작 -->
+                    <td class="line">결제 금액</td>
+                    <td class="line"><%=list[0].Price %></td>
+                </tr><!-- 두번째 줄 끝 -->
+                
+            </table>
+        </div>
+      </div>
+
+    <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
+    
+
+</body>
+
+</html>
