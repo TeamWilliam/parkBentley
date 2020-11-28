@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="./css/calendar.css" />
 
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
+    
 </head>
 
 <body>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <nav class="loginText">
-        <li><a href="./login.html">Login</a></li>
-         <li><a href="./join.html">join</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="join.html">Join</a></li>
     </nav>
     <nav class="navbar">
         <div class="logo">
@@ -58,11 +59,11 @@
     </div>
     <!-- <div class="roundYellowBox">
     </div> -->
-    <div class="container">
-        <div class="roundYellowBox clearfix">
+    <!-- <div class="container"> -->
+        <div class="roundYellowBox">
           <!--날짜 선택하는 달력-->
           <div class="calendar-box">
-              <div class="ctr-box clearfix">
+              <div class="ctr-box">
                 <button type="button" title="prev" class="btn-cal prev">
                 </button>
                 <span class="cal-month"></span>
@@ -87,30 +88,24 @@
           </div>
           <!-- 선택한 날짜 출력 -->
           <div class="clicked-date">
-              <p class="cal-mon"></p>
-              <p class="cal-date"></p>
-              <p class="cal-day"></p>
-              <div class="timeBlock"></div>
-              <!-- <input id='name' onchange='printName()'/>
-              <div id='result'></div> -->
-              <div>
-                  <div class="timeBlock"></div>
-              <div class="timeBlock"></div>
-              <div class="timeBlock"></div>
-              </div>
-              
-          </div>
-          
-        </div>
+            <div class="sel-date">
+              <div class="cal-all"></div>
+              <div class="cal-date"></div>
+              <div class="cal-day"></div>
+            </div>
+         </div>
+         <iframe frameborder="0" width="750" height="320" src="./calendar.html"></iframe>
         <!-- // .my-calendar -->
-        
-    </div>
+        </div>    
+    <!-- </div> -->
+    
     <div id="nextYellowButton">
         <!-- 입력한 값이랑 같이 넘겨주기 -->
         <button id="buttonText" onclick="openPopup()"> 변경 완료 </button>
     </div>
-
     <script src="./content/service/calendar.js"></script>
+    <script src="./content/service/changeColor.js"></script>
+
     <script src="./content/service/makeReservation.js"></script>
     <script>
         function openPopup(){
@@ -126,8 +121,8 @@
         }
 
     </script>
-
-
+    
+    
 </body>
 
 </html>
