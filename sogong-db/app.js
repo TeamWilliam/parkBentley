@@ -44,11 +44,23 @@ app.get('/myrecord', function (req, res) {
 /* -------------------------------------------------------------------------------------- */
 
 /* ------------------------------------개인기록 상세 조회 --------------------------------*/
-app.get('/checkMyRecord', function (req, res) {
-    var sql = 'SELECT ReservationDate, StartTime, EndTime, ReservationNum, CarNum, Price FROM Reservation';
-    conn.query(sql, function (err, rows, fields) {
-        if(err) console.log('query is not excuted. select fail...\n' + err);
-        else res.render('checkMyRecord.ejs', {list : rows});
+app.get(['/checkMyRecord','/checkMyRecord/:ReservationNum'], function (req, res) {
+
+    var sql = 'SELECT ReservationNum FROM Reservation';
+    conn.query(sql,function (err, records, fields) {
+        var ReservationNum = req.params.ReservationNum; 
+        if(ReservationNum){
+            var sql = 'SELECT ReservationDate, StartTime, EndTime, ReservationNum, CarNum, Price FROM Reservation WHERE ReservationNum =?';
+            conn.query(sql,[ReservationNum],function(err, Reservation, fields){
+                if(err) console.log('query is not excuted. select fail...\n' + err);
+                else {
+                    res.render('checkMyRecord.ejs', {records : records, Reservation:Reservation[0]});
+            }
+        });
+                  
+        }else {
+            res.render('/checkMyRecord',{records : records, Reservation: undefined})
+        }
     });
     
 });
