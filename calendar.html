@@ -57,7 +57,7 @@
     font-family: "Roboto";
     font-weight: bold;
     font-size: 30px;
-    width: 50px;
+    /* width: 50px; */
 }
 </style>
 </head>
@@ -97,12 +97,15 @@
         <label for="cb21"><div class="time">&nbsp;<div class="timeBlock"></div></div></label>
         <label for="cb22"><div class="time">&nbsp;<div class="timeBlock"></div></div></label>
         <label for="cb23"><div class="time">&nbsp;<div class="timeBlock"></div></div></label>
-        <div class="timeText"></div>
+        <div style="text-align: right; margin-right: 10px;">
+            <h2>선택시간 <br></h2>
+            <div class="timeText"></div>
+        </div>
     </div>
     
     
     <form name="form1">
-        <input type="checkbox" id="cb0" name="cb0" value="00:00:00" style="display: none;" onclick="Check(this.form);">
+        <input type="checkbox" id="cb0" name="cb0" value="00:00:00" style="display: none;">
         <input type="checkbox" id="cb1" name="cb1" value="01:00:00" style="display: none;">
         <input type="checkbox" id="cb2" name="cb2" value="02:00:00" style="display: none;">
         <input type="checkbox" id="cb3" name="cb3" value="03:00:00" style="display: none;">
@@ -134,20 +137,23 @@
    </form>
 <script>
 var timeBlock = document.getElementsByClassName("timeBlock");
+
 function init() {
     for (var i = 0; i < timeBlock.length; i++) {
     timeBlock[i].addEventListener("click", handleClick);
     }
 }
-
+var cnt=0;
 function handleClick(event) {
-event.target.classList.add("clicked");
+    event.target.classList.add("clicked");
+    cnt++;
+    document.querySelector('.timeText').textContent = cnt + '시간';
 }
 
 init();
 //====================
 //'확인' 버튼을 클릭했을 때 실행되는 메서드
-var cnt=0;
+
 function Check(form){
 
 var msg = "";
@@ -230,7 +236,7 @@ if (form.cb0.checked){
 alert(msg+','+cnt);
 
 }
-document.querySelector('.timeText').textContent = cnt + '시간';
+
 
 </script>
 </body>
