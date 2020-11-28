@@ -17,16 +17,16 @@ app.get('/', function (req, res) {
     res.send('ROOT');
 });
 
-app.get('/transaction1', function (req, res) {
-    var sql = 'SELECT * FROM user';    
-    conn.query(sql, function (err, rows, fields) {
-        if(err) console.log('query is not excuted. select fail...\n' + err);
-        else res.render('transaction1.ejs', {list : rows});
-    });
-});
-
 app.get('/login', function (req, res) {
     res.render('login.ejs');
+});
+
+app.get('/changeReservation', function (req, res) {
+    res.render('changeReservation.ejs');
+});
+
+app.get('/changeReservation-1', function (req, res) {
+    res.render('changeReservation-1.ejs');
 });
 
 app.get('/makeReservation', function (req, res) {
