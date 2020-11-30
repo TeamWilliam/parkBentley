@@ -226,27 +226,75 @@ app.post('/enterCar', function (req, res) {
     var body = req.body;
     console.log(body);
 
-    var carNum = require('./ocr');
+
+    console.log("enterCar post");
+    //var carNumber = require('./ocr.js');
+    // // console.log(carNumber('C:/Users/ey/Desktop/parkBentley/sogong-db/image6.jpg'));
+    //var carNum = carNumber('C:/Users/ey/Desktop/parkBentley/sogong-db/image6.jpg');
+
+    //console.log("carnum:"+carNum);
+    //var carNumber = require('')
+    //var carNum = require('./ocr');
     //console.log(carNumber('C:/Users/ey/Desktop/parkBentley/sogong-db/image6.jpg'));
 
-    carNum = '152가 3018';
+    //carNum = '152가 3018';
 
-    console.log("carNum : "+carNum);
-    var sql1 = 'SELECT * FROM reservation WHERE CarNum = ?';
-    console.log(sql1);
-    conn.query(sql1, [carNum], function(err,results) {
-        if(err) {
-            console.log('query is not excuted. insert fail...\n' + err);
-        }
-        if(!results[0]) {
-            res.redirect('/enterCar_ReserNum');
-        }
-        else { 
-            console.log("예약이 되어있습니다. 차단기가 올라갑니다.");
-            //res.send('<script type="text/javascript">alert("예약이 되어있습니다. 차단기가 올라갑니다.");window.location="/afterEnterCar";</script>');
-            res.redirect('/afterEnterCar');
-        }
-    });
+    var filename = 'C:/Users/ey/Desktop/parkBentley/sogong-db/image6.jpg';
+    var ocr = function(filename) {
+        var carNum = "";
+        Tesseract.recognize(filename, 'kor')
+        //.progress(function  (p) { console.log('progress', p)  })
+        .catch(err => console.error(err))
+        .then(function(result){ 
+            carNum = result.data.text;
+            carNum = result.data.text.toString();
+            console.log(result.data.text);
+            console.log("Text :" + carNum);
+            console.log("Text"+carNum);
+            carNum = carNum.trim();
+            
+            window.open("/main", "차 번호 확인", "width=400, height=300, left=100, top=50");
+
+            var sql1 = 'SELECT * FROM reservation WHERE CarNum = ? ';
+            console.log(sql1);
+            console.log("last carNum : "+carNum);
+            conn.query(sql1, [carNum], function(err,results) {
+            if(err) {
+                console.log('query is not excuted. insert fail...\n' + err);
+            }
+            if(!results[0]) {
+                
+                console.log("차 번호로 예약된 게 없습니다.");
+                //res.redirect('/enterCar_ReserNum');
+            }
+            else { 
+                console.log("예약이 되어있습니다. 차단기가 올라갑니다.");
+                //res.send('<script type="text/javascript">alert("예약이 되어있습니다. 차단기가 올라갑니다.");window.location="/afterEnterCar";</script>');
+                res.redirect('/afterEnterCar');
+            }
+            });
+
+        })
+    }
+
+    ocr(filename);
+
+
+    // var sql1 = 'SELECT * FROM reservation WHERE CarNum = ?';
+    // console.log(sql1);
+    // conn.query(sql1, [carNum], function(err,results) {
+    //     if(err) {
+    //         console.log('query is not excuted. insert fail...\n' + err);
+    //     }
+    //     if(!results[0]) {
+    //         res.redirect('/enterCar_ReserNum');
+    //     }
+    //     else { 
+    //         console.log("예약이 되어있습니다. 차단기가 올라갑니다.");
+    //         //res.send('<script type="text/javascript">alert("예약이 되어있습니다. 차단기가 올라갑니다.");window.location="/afterEnterCar";</script>');
+    //         res.redirect('/afterEnterCar');
+    //     }
+    // });
 });
 /* ---------------------------------------------------------------------------*/
 
@@ -839,7 +887,13 @@ app.get(['/checkMyRecord','/checkMyRecord/:ReservationNum'], function (req, res)
 
 /* ------------------------------------ 월별 통계량 보기 ------------------------------------ */
 app.get('/adminMonth', function (req, res) {
-    
+    var userID = loginMemberID;
+
+    var sql = 'SELECT * FROM user WHERE ID=?';
+
+    console.log("현재 ID : " + userID);
+
+    conn.query(sql,[userID],function (err, row, fields) {
     var body = req.body;
     var Year = body.Year;
     var Month = [body.Month-2, body.Month-1,body.Month,body.Month-(-1),body.Month-(-2)];
@@ -847,18 +901,25 @@ app.get('/adminMonth', function (req, res) {
     var midMonth = body.Month;
     console.log(Year,Month);
 
-    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? ;"
+    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? "
         conn.query(sql,[body.Month-2, body.Month-1,body.Month,nextmonth,nextmonth+1],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', { Reservation : Reservation ,Year:Year, Month:midMonth});
+            else {res.render('adminMonth.ejs', { list:row ,Reservation : Reservation ,Year:Year, Month:midMonth});
         }
         });
-
+    });
 });
 
 app.post('/adminMonth', function (req, res) {
 
+    var userID = loginMemberID;
+
+    var sql = 'SELECT * FROM user WHERE ID=?';
+
+    console.log("현재 ID : " + userID);
+
+    conn.query(sql,[userID],function (err, row, fields) {
     var body = req.body;
     var Year = body.Year;
     var Month = [body.Month-2, body.Month-1,body.Month,body.Month-(-1),body.Month-(-2)];
@@ -866,14 +927,14 @@ app.post('/adminMonth', function (req, res) {
     var midMonth = body.Month;
     console.log(Year,Month);
 
-    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? ;"
+    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? "
         conn.query(sql,[body.Month-2, body.Month-1,body.Month,nextmonth,nextmonth+1],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', { Reservation : Reservation ,Year:Year, Month:midMonth});
+            else {res.render('adminMonth.ejs', { list:row ,Reservation : Reservation ,Year:Year, Month:midMonth});
         }
         });
-    
+    });
 
 });
 
@@ -882,34 +943,13 @@ app.post('/adminMonth', function (req, res) {
 /* ------------------------------------ 일별 통계량 보기 ------------------------------------ */
 app.get('/adminDay', function (req, res) {
     
-    var body = req.body;
-    var sYear = body.sYear;
-    var sMonth = body.sMonth;
-    var sDay = body.sDay;
-    var lYear = body.lYear;
-    var lMonth = body.lMonth;
-    var lDay = body.lDay;
+    var userID = loginMemberID;
 
-    console.log(Year,Month);
+    var sql = 'SELECT * FROM user WHERE ID=?';
 
-    var sql = "select ReservationDate, startTime, endTime,reservationNum,usestatus from reservation where year(ReservationDate)=? AND Month(ReservationDate)>=? AND Month(ReservationDate)<=? AND Day(ReservationDate)>=? AND Day(ReservationDate) <=?"
-        conn.query(sql,[sYear,sMonth,lMonth,sDay,lDay],function (err, Reservation, fields) {
-            console.log(Reservation);
-            if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminDay.ejs', { Reservation : Reservation ,
-                sYear:sYear, 
-                sMonth:sMonth , 
-                sDay:sDay,
-                lYear:lYear, 
-                lMonth:lMonth , 
-                lDay:lDay
-            });
-        }
-        });
+    console.log("현재 ID : " + userID);
 
-});
-
-app.post('/adminDay', function (req, res) {
+    conn.query(sql,[userID],function (err, row, fields) {
 
     var body = req.body;
     var sYear = body.sYear;
@@ -921,11 +961,11 @@ app.post('/adminDay', function (req, res) {
 
     console.log(sYear,sMonth);
 
-    var sql = "select ReservationDate, startTime, endTime,reservationNum,usestatus from reservation where year(ReservationDate)=? AND Month(ReservationDate)>=? AND Month(ReservationDate)<=? AND Day(ReservationDate)>=? AND Day(ReservationDate) <=?"
+    var sql = "select ReservationDate, startTime, endTime,reservationNum,usestatus from reservation where year(ReservationDate)=? AND Month(ReservationDate)>=? AND Month(ReservationDate)<=? AND Day(ReservationDate)>=? AND Day(ReservationDate) <=? AND usestatus='이용완료'"
         conn.query(sql,[sYear,sMonth,lMonth,sDay,lDay],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminDay.ejs', { Reservation : Reservation ,
+            else {res.render('adminDay.ejs', { list:row, Reservation : Reservation ,
                 sYear:sYear, 
                 sMonth:sMonth , 
                 sDay:sDay,
@@ -935,6 +975,44 @@ app.post('/adminDay', function (req, res) {
             });
         }
         });
+    });
+});
+
+app.post('/adminDay', function (req, res) {
+
+    var userID = loginMemberID;
+
+    var sql = 'SELECT * FROM user WHERE ID=?';
+
+    console.log("현재 ID : " + userID);
+
+    conn.query(sql,[userID],function (err, row, fields) {
+
+    var body = req.body;
+    var sYear = body.sYear;
+    var sMonth = body.sMonth;
+    var sDay = body.sDay;
+    var lYear = body.lYear;
+    var lMonth = body.lMonth;
+    var lDay = body.lDay;
+
+    console.log(sYear,sMonth);
+
+    var sql = "select ReservationDate, startTime, endTime,reservationNum,usestatus from reservation where year(ReservationDate)=? AND Month(ReservationDate)>=? AND Month(ReservationDate)<=? AND Day(ReservationDate)>=? AND Day(ReservationDate) <=? AND usestatus='이용완료'"
+        conn.query(sql,[sYear,sMonth,lMonth,sDay,lDay],function (err, Reservation, fields) {
+            console.log(Reservation);
+            if(err) console.log('query is not excuted. select fail...\n' + err);
+            else {res.render('adminDay.ejs', { list:row, Reservation : Reservation ,
+                sYear:sYear, 
+                sMonth:sMonth , 
+                sDay:sDay,
+                lYear:lYear, 
+                lMonth:lMonth , 
+                lDay:lDay
+            });
+        }
+        });
+    });
 });
 
 /* -------------------------------------------------------------------------------------- */
