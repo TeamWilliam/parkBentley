@@ -80,20 +80,6 @@ function Check(form){
   alert(msg+','+cnt);
 }
 
-var timeBlock = document.getElementsByClassName("timeBlock");
-
-function handleClick(event) {
-  event.target.classList.add("clicked");
-  
-}
-
-function init() {
-  for (var i = 0; i < timeBlock.length; i++) {
-    timeBlock[i].addEventListener("click", handleClick);
-  }
-}
-
-init();
 
 // function Check(form){
 //   //'확인' 버튼을 클릭했을 때 실행되는 메서드

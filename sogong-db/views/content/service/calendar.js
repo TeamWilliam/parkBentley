@@ -40,8 +40,8 @@ const $btnPrev = document.querySelector('.btn-cal.prev');
  * @param {number} dayIn
 */
 function loadDate (date, dayIn) {
-  document.querySelector('.cal-date').textContent = date;
-  document.querySelector('.cal-day').textContent = init.dayList[dayIn];
+  document.querySelector('.cal-date').textContent = date + ' . ';
+  document.querySelector('.cal-day').textContent = init.dayList[dayIn] + ' . ';
 }
 
 /**
@@ -60,7 +60,7 @@ function loadYYMM (fullDate) {
 
   document.querySelector('.cal-month').textContent = init.monList[mm];
   document.querySelector('.cal-year').textContent = yy;
-  document.querySelector('.cal-all').textContent = yy + '   ' +init.monList[mm] + ' '  ;
+  document.querySelector('.cal-all').textContent = yy + '  .  ' +init.monList[mm] + '  .  '  ;
 
 
   let trtd = '';
