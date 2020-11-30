@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ParkBentley</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/payExtraFee.css" />
+    <!-- <link rel="stylesheet" href="./css/calendar.css" /> -->
+    <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <nav class="loginText">
+        <li><a href="./login.html">Login</a></li>
+         <li><a href="./join.html">join</a></li>
+    </nav>
+    <nav class="navbar">
+        <div class="logo">
+
+            <a href="./index.html">Park Bentley</a>
+
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="">서비스 이용</a>
+                <ul>
+                    <li><a href="./makeReservation.html">예약하기</a></li>
+                    <li><a href="./changeReservation.html">예약변경</a></li>
+                    <li><a href="#">예약확인</a></li>
+                </ul>
+            </li>
+            <li><a href="">입출차 확인</a>
+                <ul>
+                    <li><a href="./enterCar.html">입차하기</a></li>
+                    <li><a href="./departCar.html">출차하기</a></li>
+                </ul>
+            </li>
+            <li><a href="">마이페이지</a>
+                <ul>
+                    <li><a href="myrecord.html">사용 기록 조회</a></li>
+                    <li><a href="charge.html">잔액 충전</a></li>
+                </ul>
+            </li>
+            <li><a href="">사용 통계 조회</a>
+                <ul><li><a href="adminMonth.html">월별 사용통계</a></li>
+                    <li><a href="adminDay.html">일별 사용통계</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="yellowBar">
+        <p class="yellowBarText">초과 금액 결제 하기</p>
+    </div>
+
+    <!-- 기본 테마 끝 -->
+
+    <div class="container">
+        <div class="leftYellowBox">
+            <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="text">사용자 이름</div>
+            <div class="text">출차 예정 시간</div>
+            <div class="text">출차 시간</div>
+
+        </div>
+        <div class="rightYellowBox">
+            <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="text">초과 시간</div>
+            <div class="text">결재 잔액</div>
+            <div class="text">초과 금액</div>
+
+            <div id="payButton">
+                <button type="button" id="buttonText">결제하기</button>
+            </div>
+        </div>
+
+    </div>
+    
+    
+</body>
+
+</html>

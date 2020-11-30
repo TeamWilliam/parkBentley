@@ -1,0 +1,63 @@
+.yellowRoundBox{
+    position: absolute;
+    width: 90%;
+    height: 500px;
+    left: 50%;
+    top: 323px;
+    /* margin: 50px; */
+    margin-left: -45%;
+    float: left;
+    background: #FFFFFF;
+    border: 3px solid #EAD08C;
+    border-radius: 58px;
+}
+.yellowRoundBox .grayBox{
+    /* position: absolute; */
+    float: left;
+    width: 73%;
+    height: 85%;
+    /* left: 91px;
+    top: 398px; */
+    vertical-align: middle;
+
+    margin: 30px;
+    background: #C4C4C4;
+    border-radius: 46px;
+}
+.yellowRoundBox .grayBox .car-num{
+    position: absolute; 
+    z-index: 2;
+    margin: 50px;
+    margin-top: 100px;
+}
+.yellowRoundBox #enterButton button{
+    /* position: absolute; */
+    float: right;
+    width: 20%;
+    height: 217px;
+    /* margin: 20px; */
+    margin-top: 130px;
+    margin-right: 30px;
+    
+    background: #EAD08C;
+    border-radius: 42px;
+    border: none;
+}
+#buttonText{
+    text-align: center;
+    vertical-align: middle;
+
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    color: #483F37;
+}
+#cameraButton{
+    position: absolute; 
+    z-index: 1;
+    vertical-align: middle;
+    margin-top: 100px;
+    margin-left: 30%;
+}

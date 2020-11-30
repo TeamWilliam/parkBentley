@@ -12,20 +12,20 @@
 <body>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <nav class="loginText">
-        <li><a href="login.html">Login</a></li>
-        <!--<li><button type="button" onclick="location.href='login.html'">로그인</button></li>-->
-        <li><a href="./join.html">Join</a></li>
+        <li><a href="/login">Login</a></li>
+        <!--<li><button type="button" onclick="location.href='login.ejs'">로그인</button></li>-->
+        <li><a href="/join">Join</a></li>
     </nav>
     <nav class="navbar">
         <div class="logo">
 
-            <a href="./index.html">Park Bentley</a>
+            <a href="/index">Park Bentley</a>
 
         </div>
         <ul class="navbar_menu">
             <li><a href="">서비스 이용</a>
                 <ul>
-                    <li><a href="./makeReservation.html">예약하기</a></li>
+                    <li><a href="/makeReservation">예약하기</a></li>
                     <li><a href="#">예약변경</a></li>
                     <li><a href="#">예약확인</a></li>
                 </ul>
@@ -50,13 +50,13 @@
     <div class="yellowBar">
         <p class="yellowBarText">로 그 인</p>
         <div class="loginmain">
-            <form action='/loginAf' method="post">
+            <form action='/loginAf' method="POST">
           
                     
                     <div class="login">
                         <ul class = "top">
-                            <li><label for="id">아이디</label><input type="text" id="id" name='id'></li>
-                            <li><label for="pw">비밀번호</label><input type="password" id="pw" name='PASSWORD'></li>
+                            <li><label>아이디</label><input type="text" id="id" name='ID'></li>
+                            <li><label>비밀번호</label><input type="password" id="pw" name='PASSWORD'></li>
                             <li class = "save"><input type="checkbox" id="check1"><label for="check1">아이디 저장</label> </li>
                             <li class="loginbtn" type='submit'><a href="#">로그인</a></li>
                         </ul>

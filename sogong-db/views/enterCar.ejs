@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<form action="/enterCar" method="POST">
+<head>
+    <title>ParkBentley</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/enterCar.css" />
+    <!-- <link rel="stylesheet" href="./css/calendar.css" /> -->
+    <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <nav class="loginText">
+        <li><a href="./login.ejs">Login</a></li>
+         <li><a href="./join.ejs">join</a></li>
+    </nav>
+    <nav class="navbar">
+        <div class="logo">
+
+            <a href="./index.ejs">Park Bentley</a>
+
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="">서비스 이용</a>
+                <ul>
+                    <li><a href="./makeReservation.ejs">예약하기</a></li>
+                    <li><a href="./changeReservation.ejs">예약변경</a></li>
+                    <li><a href="#">예약확인</a></li>
+                </ul>
+            </li>
+            <li><a href="">입출차 확인</a>
+                <ul>
+                    <li><a href="./enterCar.ejs">입차하기</a></li>
+                    <li><a href="#">출차하기</a></li>
+                </ul>
+            </li>
+            <li><a href="">마이페이지</a>
+                <ul>
+                    <li><a href="myrecord.ejs">사용 기록 조회</a></li>
+                    <li><a href="#">잔액 충전</a></li>
+                </ul>
+            </li>
+            <li><a href="">사용 통계 조회</a>
+                <ul>
+                    <li><a href="adminMonth.ejs">월별 사용통계</a></li>
+                    <li><a href="adminDay.ejs">일별 사용통계</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="yellowBar">
+        <p class="yellowBarText">입차 하기</p>
+    </div>
+
+    <!-- 기본 테마 끝 -->
+
+    <div class="yellowRoundBox">
+        <div class="grayBox">
+            <div class="cameraButton" onclick="onclick=document.all.file.click()">
+                <img src="./image/camera.png" width="200">
+            </div>
+        </div>
+        <!-- 번호판 이미지 업로드 -->
+        <form method="post" action="upload" id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" onChange="uploadImgPreview();" accept="image/*" style="display: none;">
+            <!-- 번호판 이미지 서버로 전송 -> ocr인식하기 -->
+            <div id="enterButton">
+                <button type="submit" id="buttonText" onclick="location.href='./afterEnterCar.ejs'">입차하기</button>
+            </div>
+        </form>
+    </div>
+    
+    
+</body>
+</form>
+</html>

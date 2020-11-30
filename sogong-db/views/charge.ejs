@@ -16,43 +16,39 @@
 
     </script>
     <nav class="loginText">
-        <%if ( list[0].ID == "root" ) { %>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/Join">Join</a></li>
-        <% } else { %>
-            <li><a href="/main"><%=list[0].ID %>님 환영합니다!</a></li>
-        <% } %>
+        <li><a href="./login.html">Login</a></li>
+        <li><a href="./join.html">join</a></li>
     </nav>
     <nav class="navbar">
         <div class="logo">
 
-            <a href="/main">Park Bentley</a>
+            <a href="./index.html">Park Bentley</a>
 
         </div>
         <ul class="navbar_menu">
             <li><a href="">서비스 이용</a>
                 <ul>
-                    <li><a href="/makeReservation">예약하기</a></li>
-                    <li><a href="/changeReservation">예약변경</a></li>
-                    <li><a href="/confirmReservation">예약확인</a></li>
+                    <li><a href="./makeReservation.html">예약하기</a></li>
+                    <li><a href="./changeReservation.html">예약변경</a></li>
+                    <li><a href="#">예약확인</a></li>
                 </ul>
             </li>
             <li><a href="">입출차 확인</a>
                 <ul>
-                    <li><a href="/enterCar">입차하기</a></li>
-                    <li><a href="/departCar">출차하기</a></li>
+                    <li><a href="./enterCar.html">입차하기</a></li>
+                    <li><a href="./departCar.html">출차하기</a></li>
                 </ul>
             </li>
             <li><a href="">마이페이지</a>
                 <ul>
-                    <li><a href="/myrecord">사용 기록 조회</a></li>
-                    <li><a href="/charge">잔액 충전</a></li>
+                    <li><a href="myrecord.html">사용 기록 조회</a></li>
+                    <li><a href="charge.html">잔액 충전</a></li>
                 </ul>
             </li>
             <li><a href="">사용 통계 조회</a>
                 <ul>
-                    <li><a href="/adminMonth">월별 사용통계</a></li>
-                    <li><a href="/adminDay">일별 사용통계</a></li>
+                    <li><a href="adminMonth.html">월별 사용통계</a></li>
+                    <li><a href="adminDay.html">일별 사용통계</a></li>
                 </ul>
             </li>
         </ul>
@@ -72,35 +68,32 @@
             <div class="text"><input type="radio" name="chk_info" value="50000" onchange="radio_chk(event);">50000원</div>
         </form>
         </div>
-        
+        <% for(i = 0; i < list.length; i++) { %>
         <div class="rightYellowBox">
-            <%if ( list[0].ID == "root" ) { %>
-                <h2 style="display: inline;">로그인을 한 후에 사용이 가능합니다.</h2>
-                <a href="/login">로그인하러가기</a></li>
-            <% } else { %>
-                <h2 style="display: inline;"><%=list[0].ID %></h2><h2 style="display: inline;">님</h2> <h2 >현재 잔액은</h2>
-                <h2 name = "money" style="display: inline;"><%=list[0].Money %></h2> <!--현재 잔액 처음부터 떠 있음!-->
-                <h2 style="display: inline;">원 입니다.</h2> 
-                <div class = "js-chargePlus" id = "moneyPlus">
-                    <h2>
-        
-                    </h2>
-                </div>
-                <div>&nbsp;</div>
-                    
-        
-                <div id="payButton">
-                    <button type="submit" id="buttonText" onclick=chargeComplete()>충전하기</button>
-                </div>
-            <% } %>
+            <h2 style="display: inline;"><%=list[i].ID %></h2><h2 style="display: inline;">님</h2> <h2 >현재 잔액은</h2>
+            <h2 name = "money" style="display: inline;"><%=list[i].Money %></h2> <!--현재 잔액 처음부터 떠 있음!-->
+            <h2 style="display: inline;">원 입니다.</h2> 
+            <div class = "js-chargePlus" id = "moneyPlus">
+                <h2>
+
+            </h2>
+
+            </div>
+            <div>&nbsp;</div>
+            
+
+            <div id="payButton">
+                <button type="submit" id="buttonText" onclick=chargeComplete()>충전하기</button>
+            </div>
         </div>
+        <% } %>
 
     </div>
     <script>
     function chargeComplete() {
         alert("충전되었습니다!");
-        window.location.href = "./charge";
-    }
+        window.location.href = "./index";
+      }
     </script>
     <script src="./content/charge/charge.js"></script>
 </body>

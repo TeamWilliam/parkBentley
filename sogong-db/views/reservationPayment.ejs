@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ParkBentley</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/reservationPayment.css" />
+    <link rel="stylesheet" href="./css/calendar.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <nav class="loginText">        
+        <li><a href="login.html">Login</a></li>
+        <li><a href="join.html">Join</a></li>
+    </nav>
+    <nav class="navbar">
+        <div class="logo">
+
+            <a href="index.html">Park Bentley</a>
+
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="">서비스 이용</a>
+                <ul>
+                    <li><a href="./makeReservation.html">예약하기</a></li>
+                    <li><a href="./changeReservation.html">예약변경</a></li>
+                    <li><a href="#">예약확인</a></li>
+                </ul>
+            </li>
+            <li><a href="">입출차 확인</a>
+                <ul>
+                    <li><a href="./enterCar.html">입차하기</a></li>
+                    <li><a href="./departCar.html">출차하기</a></li>
+                </ul>
+            </li>
+            <li><a href="">마이페이지</a>
+                <ul>
+                    <li><a href="myrecord.html">사용 기록 조회</a></li>
+                    <li><a href="charge.html">잔액 충전</a></li>
+                </ul>
+            </li>    
+            <li><a href="">사용 통계 조회</a>
+            <!--관리자 권한일때만 접근 가능하도록 설계-->
+                <ul><li><a href="adminMonth.html">월별 사용통계</a></li>
+                    <li><a href="adminDay.html">일별 사용통계</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- 기본 테마 끝 -->
+    <div class="yellowBar">
+        <p class="yellowBarText">결제 하기</p>
+    </div>
+    <!-- 안에 내용 -->
+    <!-- <div class="yellowBorder"> -->
+    <div class="yellowReceipt">
+        <div class="receipt"> Receipt </div>
+        <div class="receiptText">남은 충전 금액</div>
+        <div class="cost">결제 예정 금액</div>
+        <hr class="line">
+        <div class="remainBalance">남은 충전 금액</div>
+    </div>
+    <div class="warnningBox">
+        <div class="red">
+            <h3>※주의※</h3>
+            <p>선 결제 시 기본금액이 부과되며, 예약시간 초과 시 <br> 시간당 1000원의 추가요금이 발생됩니다.</p>
+            <p>예약 취소는 하루 전까지 가능합니다.</p>
+        </div>
+        <div class="check">
+            <label><input style='zoom:2.0; background-color: #EAD08C;' type="checkbox" name="check1" value="check1"> 상단의 주의사항을 숙지 완료 </label><br>
+            <label><input style='zoom:2.0; background-color: #EAD08C;' type="checkbox" name="check2" value="check2"> 구매 조건 확인 및 결제 동의 </label>
+        </div>
+
+    </div>
+    <!-- </div> -->
+    <!-- 이전 버튼, 다음 버튼 -->
+    <div id="nextYellowButton">
+        <button id="buttonText" onclick="openPopup()">예약 완료 >> </button>
+    </div>
+    <div id="prevYellowButton">
+        <button id="buttonText" onclick="history.back(-1);"><< 이전 단계</button>
+    </div>
+
+    <script>
+        function openPopup(){
+ 
+            var _width = '400';
+            var _height = '200';
+
+            // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+            var _left = Math.ceil(( window.screen.width - _width )/2);
+            var _top = Math.ceil(( window.screen.height - _height )/2); 
+
+            window.open('./completeReservation.html', 'popup-test', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+        }
+
+    </script>
+    
+
+</body>
+
+</html>
