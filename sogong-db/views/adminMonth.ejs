@@ -16,11 +16,11 @@
 
     </script>
     <nav class="loginText">
-        <%if ( list[0].ID == "root" ) { %>
+        <%if ( Reservation.ID == "root" ) { %>
             <li><a href="/login">Login</a></li>
             <li><a href="/join">Join</a></li>
         <% } else { %>
-            <li><a href="/main"><%=list[0].ID %>님 환영합니다!</a></li>
+            <li><a href="/main"><%=Reservation.ID %>님 환영합니다!</a></li>
         <% } %>
     </nav>
     <nav class="navbar">
@@ -48,7 +48,7 @@
                     <li><a href="/charge">잔액 충전</a></li>
                 </ul>
             </li>
-            <%if ( list[0].ID == "admin" ) { %>
+            <%if ( Reservation.ID == "admin" ) { %>
                 <li><a href="">사용 통계 조회</a>
                     <ul>
                         <li><a href="/adminMonth">월별 사용통계</a></li>
