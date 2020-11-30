@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<form action="/checkCarNumber" method="POST">
+    <head>
+        <title>차 번호 확인</title>
+        <style>
+            .text{
+                position: absolute;
+                width: 400px;
+                height: 100px;
+                left: 50%;
+                margin-top: 50px;
+                margin-left: -200px;
+                text-align: center;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .blueButton{
+                position: absolute;
+                width: 114px;
+                height: 50px;
+                margin-top: 10px;
+                left: 50%;
+                margin-left: -60px;
+                color: white;
+                background: #5887FF;
+                border: 3px solid #000000;
+                border-radius: 58px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="text"><% =carNum %><div>
+        <input type="button" class="blueButton" value="확 인(처음으로)" onclick="moveClose()" />
+    </body>
+    <script>
+        function moveClose(){
+            opener.location.href="/main";
+            self.close();
+        }
+    </script>
+</form>
+</html>
