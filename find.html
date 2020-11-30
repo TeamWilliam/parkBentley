@@ -50,29 +50,31 @@
         </ul>
     </nav>
     <div class="yellowBar">
-        <p class="yellowBarText">로 그 인</p>
-        <div class="loginmain">
-            <form action=" " method="post">
-          
-                    
-                    <div class="login">
-                        <ul class = "top">
-                            <li><label for="id">아이디</label><input type="text" id="id" name='id'></li>
-                            <li><label for="pw">비밀번호</label><input type="password" id="pw" name='PASSWORD'></li>
-                            <li class = "save"><input type="checkbox" id="check1"><label for="check1">아이디 저장</label> </li>
-                            <li class="loginbtn"><a href="#">로그인</a></li>
-                        </ul>
-                        <ul class = "btm">
-                            <li>혹시 아이디 / 비밀번호를 잊으셨나요?<a href="find.html">아이디 찾기</a></li>
-                            <li>혹시 회원 정보가 없으신가요?<a href="join.html">회원가입</a></li>
-                        </ul>
-                    </div>
+        <p class="yellowBarText">아 이 디 &nbsp;/&nbsp;  비 밀 번 호 찾 기</p>
+        <div>
+            <form action="" method="get">
+                <fieldset>
+                    <legend>아이디 찾기</legend>
+                    이름 : <input type="text" name="userName"><br>
+                    차 번호 : <input type="text" name="userCarNum"><br>
+                    <button type="submit">아이디 찾기</button>
+                </fieldset>
             </form>
+        
         </div>
-    </div>
+        <div>
+            <form action="" method="get">
+                <fieldset>
+                    <legend>비밀번호 찾기</legend>
+                    아이디 : <input type="text" name="usesrId"><br>
+                    차 번호 : <input type="text" name="userCarNum"><br>
+                    <button type="submit">비밀번호 찾기</button>
+                </fieldset>
+            </form>
+        
+        </div>
+    </div> 
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
-    
-
 </body>
 
 </html>
