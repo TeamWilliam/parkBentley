@@ -853,7 +853,7 @@ app.get('/adminMonth', function (req, res) {
     var midMonth = body.Month;
     console.log(Year,Month);
 
-    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? ;"
+    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? "
         conn.query(sql,[body.Month-2, body.Month-1,body.Month,nextmonth,nextmonth+1],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
@@ -879,7 +879,7 @@ app.post('/adminMonth', function (req, res) {
     var midMonth = body.Month;
     console.log(Year,Month);
 
-    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? ;"
+    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? "
         conn.query(sql,[body.Month-2, body.Month-1,body.Month,nextmonth,nextmonth+1],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);

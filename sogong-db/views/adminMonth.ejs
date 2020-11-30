@@ -16,11 +16,11 @@
 
     </script>
     <nav class="loginText">
-        <%if ( Reservation.ID == "root" ) { %>
+        <%if ( list[0].ID == "root" ) { %>
             <li><a href="/login">Login</a></li>
             <li><a href="/join">Join</a></li>
         <% } else { %>
-            <li><a href="/main" id="logined"><%=Reservation.ID %>님 환영합니다!</a></li>
+            <li><a href="/main"><%=list[0].ID %>님 환영합니다!</a></li>
         <% } %>
     </nav>
     <nav class="navbar">
