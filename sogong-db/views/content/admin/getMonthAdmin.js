@@ -1,7 +1,6 @@
 function getMonthAdmin() { //년과 월에 따라 마지막 일 구하기 
-    var year = document.getElementById('select_year');
-    var month = document.getElementById('select_month');
-    
+    var year = document.getElementByName("Year");
+    var month = document.getElementByName("Month");
     var yearSelected = year.options[year.selectedIndex].text;
     var monthSelected = month.options[month.selectedIndex].text;
 
