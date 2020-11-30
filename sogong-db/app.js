@@ -773,14 +773,15 @@ app.get('/adminMonth', function (req, res) {
     var body = req.body;
     var Year = body.Year;
     var Month = [body.Month-2, body.Month-1,body.Month,body.Month-(-1),body.Month-(-2)];
+    var nextmonth = body.Month-(-1);
     var midMonth = body.Month;
     console.log(Year,Month);
 
-    var sql = "SELECT Count(ReservationNum) c FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum) c2 from reservation where month(ReservationDate)=?;"
-        conn.query(sql,[midMonth,midMonth+1],function (err, Reservation, fields) {
+    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? ;"
+        conn.query(sql,[body.Month-2, body.Month-1,body.Month,nextmonth,nextmonth+1],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', { Reservation : Reservation[0] ,Year:Year, Month:midMonth});
+            else {res.render('adminMonth.ejs', { Reservation : Reservation ,Year:Year, Month:midMonth});
         }
         });
 
@@ -791,19 +792,16 @@ app.post('/adminMonth', function (req, res) {
     var body = req.body;
     var Year = body.Year;
     var Month = [body.Month-2, body.Month-1,body.Month,body.Month-(-1),body.Month-(-2)];
+    var nextmonth = body.Month-(-1);
     var midMonth = body.Month;
     console.log(Year,Month);
 
-        var sql = 'SELECT Count(ReservationNum) count,ReservationNum , Month(ReservationDate) M FROM Reservation WHERE month(ReservationDate)=? AND year(ReservationDate)=?';
-        conn.query(sql,[midMonth,Year],function (err, Reservation, fields) {
-
-            var sql ='SELECT Count(ReservationNum) count1, Month(ReservationDate) M1 FROM Reservation WHERE month(ReservationDate)=? AND year(ReservationDate)=?'
-            conn.query(sql,[midMonth-1,Year],function (err, Res1, fields) {
-                console.log(Res1);
-                if(err) console.log('query is not excuted. select fail...\n' + err);
-                else {res.render('adminMonth.ejs', { Res1:Res1[0], Reservation : Reservation[0] ,Year:Year,Month:midMonth});
-            }
-        });
+    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? ;"
+        conn.query(sql,[body.Month-2, body.Month-1,body.Month,nextmonth,nextmonth+1],function (err, Reservation, fields) {
+            console.log(Reservation);
+            if(err) console.log('query is not excuted. select fail...\n' + err);
+            else {res.render('adminMonth.ejs', { Reservation : Reservation ,Year:Year, Month:midMonth});
+        }
         });
     
 
