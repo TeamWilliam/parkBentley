@@ -79,26 +79,39 @@
     </div>
     <!-- </div> -->
     <!-- 이전 버튼, 다음 버튼 -->
+    
     <div id="nextYellowButton">
-        <button id="buttonText" onclick="openPopup()">예약 완료 >> </button>
+        <button id="buttonText" onclick="openPopup()"> 결제하기 </button>
     </div>
     <div id="prevYellowButton">
         <button id="buttonText" onclick="history.back(-1);"><< 이전 단계</button>
     </div>
 
     <script>
+        
+        var userBalance = parseInt(document.getElementById("num1").innerHTML);
+        var cost = parseInt(document.getElementById("num2").innerHTML);
+        var result = userBalance - cost;
+        document.getElementById("num3").innerHTML=result;
+        console.log(result);
         function openPopup(){
- 
+            
             var _width = '400';
             var _height = '200';
 
             // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
             var _left = Math.ceil(( window.screen.width - _width )/2);
-            var _top = Math.ceil(( window.screen.height - _height )/2); 
+            var _top = Math.ceil(( window.screen.height - _height )/2);
 
-            window.open('./completeReservation', 'popup-test', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+            
+            // 결제 금액 충분한 경우
+            if(result >= 0){
+                window.open('./completeReservation.html', 'popup-test', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+            }else{// 결제 금액 부족한 경우
+                window.open('./insufficientBalanceAlert.html', 'popup-test', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+            }
+            
         }
-
     </script>
     
 
