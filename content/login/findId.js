@@ -1,18 +1,19 @@
 const chargeContainer = document.querySelector(".js-chargePlus"),
     chargeTitle = chargeContainer.querySelector("h2");
 
-function findId(event) {
-    //라디오 버튼 Name 가져오기
-    var radio_btn = document.selectMoney.chk_info;
-    var id = 0; //여기 기존의 값 넣으면 됨!
-    var chargePlus = '님의 아이디는' + event.target.value + '입니다.';
 
-    document.getElementById("moneyPlus").innerHTML = chargePlus;
-    $('#moneyPlus').text(chargePlus);
+function showFindId() {
+    var userName = document.getElementById('userName').value
+    var userCarNum = document.getElementById('userCarNum').value
+
+    alert(userName + '님의 아이디는' + '입니다.');
+    window.location.href = "login.html";
 }
 
-function init() {
-    findId();
-}
+function showFindPassword() {
+    var userId = document.getElementById('userId').value
+    var userCarNum = document.getElementById('userCarNum').value
 
-init();
+    alert(userId + '님의 비밀번호는' + '입니다.');
+    window.location.href = "login.html";
+  }
