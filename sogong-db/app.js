@@ -776,8 +776,8 @@ app.get('/adminMonth', function (req, res) {
     var midMonth = body.Month;
     console.log(Year,Month);
 
-    var sql = 'SELECT Count(ReservationNum) count,ReservationNum , Month(ReservationDate) M FROM Reservation WHERE month(ReservationDate)=? AND year(ReservationDate)=?';
-        conn.query(sql,[midMonth,Year],function (err, Reservation, fields) {
+    var sql = "SELECT Count(ReservationNum) c FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum) c2 from reservation where month(ReservationDate)=?;"
+        conn.query(sql,[midMonth,midMonth+1],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
             else {res.render('adminMonth.ejs', { Reservation : Reservation[0] ,Year:Year, Month:midMonth});
