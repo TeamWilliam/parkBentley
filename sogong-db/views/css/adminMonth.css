@@ -1,24 +1,27 @@
 .jqbar
 {
     position: relative;
-    top: 100px;
+    top: 60px;
+    text-align: center;
+    left: 100px;
 }
 .jqbar.vertical
 {
     text-align: center;
     display: inline-block;
+    padding-left: 110px; /*막대 그래프 간 간격*/
 }
 .jqbar.vertical span
 {
     display: block;
-    font-size: 11px;
+    font-size: 25px;
     font-weight: bold;
 }
 .jqbar.vertical .bar-percent
 {
-    font-size: 11px;
+    font-size: 20px;
     font-weight: bold;
-    position: absolute;
+    position: relative;
     height: 20px;
     margin-bottom: 5px;
     width: 100%;
@@ -34,20 +37,4 @@
     position: absolute;
 }
 
-/*horizontal*/
-
-.jqbar.horizontal span
-{
-    display: inline-block;
-    margin-left: 5px;
-    font-size: 11px;
-    font-weight: bold;
-}
-.jqbar.horizontal .bar-percent
-{
-    font-size: 11px;
-    font-weight: bold;
-    height: 20px;
-    margin-bottom: 5px;
-}
 

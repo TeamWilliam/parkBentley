@@ -16,8 +16,12 @@
 
     </script>
     <nav class="loginText">
-        <li><a href="./login.ejs">Login</a></li>
-        <li><a href="./join.ejs">join</a></li>
+        <%if ( list[0].ID == "root" ) { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/join">Join</a></li>
+        <% } else { %>
+            <li><a href="/main"><%=list[0].ID %>님 환영합니다!</a></li>
+        <% } %>
     </nav>
     <nav class="navbar">
         <div class="logo">
@@ -45,23 +49,26 @@
                     <li><a href="charge.ejs">잔액 충전</a></li>
                 </ul>
             </li>
-            <li><a href="">사용 통계 조회</a>
-                <ul>
-                    <li><a href="adminMonth.ejs">월별 사용통계</a></li>
-                    <li><a href="adminDay.ejs">일별 사용통계</a></li>
-                </ul>
-            </li>
+            <%if ( list[0].ID == "admin" ) { %>
+                <li><a href="">사용 통계 조회</a>
+                    <ul>
+                        <li><a href="/adminMonth">월별 사용통계</a></li>
+                        <li><a href="/adminDay">일별 사용통계</a></li>
+                    </ul>
+                </li>
+            <% } else { %>
+            <% } %>
         </ul>
     </nav>
     <!-- 기본 테마 끝 -->
     <div class="yellowBar">
         <p class="yellowBarText">월별 사용 통계</p>
         <h2 id="year">
-            날짜 선택&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="select_year"
-                onchange="javascript:pickMonthAdmin();"></select>년 <select id="select_month"
+            날짜 선택&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="select_year" name="Year"
+                onchange="javascript:pickMonthAdmin();"></select>년 <select id="select_month" name="Month"
                 onchange="javascript:pickMonthAdmin();"></select> 월
         </h2>
-        <button onclick="getMonthAdmin();">조회</button>
+        <button onclick=getMonthAdmin();>조회</button>
 
         <h1 class="js-startDate" id="termDate"></h1>
     </div>

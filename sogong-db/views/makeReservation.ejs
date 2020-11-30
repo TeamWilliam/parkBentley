@@ -15,40 +15,40 @@
 <body>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <nav class="loginText">
-        <li><a href="login.html">Login</a></li>
-        <li><a href="join.html">Join</a></li>
+        <li><a href="login.ejs">Login</a></li>
+        <li><a href="join.ejs">Join</a></li>
     </nav>
     <nav class="navbar">
         <div class="logo">
 
-            <a href="./index.html">Park Bentley</a>
+            <a href="./index.ejs">Park Bentley</a>
 
         </div>
         <ul class="navbar_menu">
             <li><a href="">서비스 이용</a>
                 <ul>
-                    <li><a href="./makeReservation.html">예약하기</a></li>
-                    <li><a href="./changeReservation.html">예약변경</a></li>
+                    <li><a href="./makeReservation.ejs">예약하기</a></li>
+                    <li><a href="./changeReservation.ejs">예약변경</a></li>
                     <li><a href="#">예약확인</a></li>
                 </ul>
             </li>
             <li><a href="">입출차 확인</a>
                 <ul>
-                    <li><a href="./enterCar.html">입차하기</a></li>
-                    <li><a href="./departCar.html">출차하기</a></li>
+                    <li><a href="./enterCar.ejs">입차하기</a></li>
+                    <li><a href="./departCar.ejs">출차하기</a></li>
                 </ul>
             </li>
             <li><a href="">마이페이지</a>
                 <ul>
-                    <li><a href="myrecord.html">사용 기록 조회</a></li>
-                    <li><a href="charge.html">잔액 충전</a></li>
+                    <li><a href="myrecord.ejs">사용 기록 조회</a></li>
+                    <li><a href="charge.ejs">잔액 충전</a></li>
                 </ul>
             </li>
             <li><a href="">사용 통계 조회</a>
             <!--관리자 권한일때만 접근 가능하도록 설계-->
                 <ul>
-                    <li><a href="adminMonth.html">월별 사용통계</a></li>
-                    <li><a href="adminDay.html">일별 사용통계</a></li>
+                    <li><a href="adminMonth.ejs">월별 사용통계</a></li>
+                    <li><a href="adminDay.ejs">일별 사용통계</a></li>
                 </ul>
             </li>
         </ul>
@@ -59,11 +59,11 @@
     </div>
     <!-- <div class="roundYellowBox">
     </div> -->
-    <!-- <div class="container"> -->
-        <div class="roundYellowBox">
+    <div class="container">
+        <div class="roundYellowBox clearfix">
           <!--날짜 선택하는 달력-->
           <div class="calendar-box">
-              <div class="ctr-box">
+              <div class="ctr-box clearfix">
                 <button type="button" title="prev" class="btn-cal prev">
                 </button>
                 <span class="cal-month"></span>
@@ -88,27 +88,25 @@
           </div>
           <!-- 선택한 날짜 출력 -->
           <div class="clicked-date">
-            <div class="sel-date">
-              <div class="cal-all"></div>
-              <div class="cal-date"></div>
-              <div class="cal-day"></div>
-            </div>
-         </div>
-         <iframe frameborder="0" width="750" height="320" src="./calendar.html"></iframe>
+              <div class="sel-date">
+                <div class="cal-all"></div>
+                <div class="cal-date" name = "caldate"></div>
+                <div class="cal-day" name="calday"></div>
+              </div>
+            <iframe frameborder="0" width="750" height="320" src="./calendar"></iframe>
+        </div>
         <!-- // .my-calendar -->
-        </div>    
-    <!-- </div> -->
-    
+        
+    </div>
     <div id="nextYellowButton">
         <!-- 입력한 값이랑 같이 넘겨주기 -->
-        <button id="buttonText" onclick="location.href='./confirmReservation.html'">예약 확인 >> </button>
+        <button id="buttonText" onclick="location.href='./confirmReservation'">예약 확인 >> </button>
     </div>
-    <script src="./content/service/calendar.js"></script>
-    <script src="./content/service/changeColor.js"></script>
 
+    <script src="./content/service/calendar.js"></script>
     <script src="./content/service/makeReservation.js"></script>
-    
-    
+
+
 </body>
 
 </html>

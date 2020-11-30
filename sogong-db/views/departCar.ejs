@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<form action="/departCar" method="POST">
 <head>
     <title>ParkBentley</title>
     <meta charset="utf-8" />
@@ -15,8 +15,12 @@
 <body>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <nav class="loginText">
-        <li><a href="./login.html">Login</a></li>
-         <li><a href="./join.html">join</a></li>
+        <%if ( list[0].ID == "root" ) { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/join">Join</a></li>
+        <% } else { %>
+            <li><a href="/main"><%=list[0].ID %>님 환영합니다!</a></li>
+        <% } %>
     </nav>
     <nav class="navbar">
         <div class="logo">
@@ -44,12 +48,15 @@
                     <li><a href="charge.html">잔액 충전</a></li>
                 </ul>
             </li>
-            <li><a href="">사용 통계 조회</a>
-                <ul>
-                    <li><a href="adminMonth.html">월별 사용통계</a></li>
-                    <li><a href="adminDay.html">일별 사용통계</a></li>
-                </ul>
-            </li>
+            <%if ( list[0].ID == "admin" ) { %>
+                <li><a href="">사용 통계 조회</a>
+                    <ul>
+                        <li><a href="/adminMonth">월별 사용통계</a></li>
+                        <li><a href="/adminDay">일별 사용통계</a></li>
+                    </ul>
+                </li>
+            <% } else { %>
+            <% } %>
         </ul>
     </nav>
     
@@ -72,7 +79,7 @@
 
             <input type="file" id="ex_file" style="display: none;" accept="image/*" onchange="setThumbnail(event);"/> 
             <div id="enterButton">
-                <button type="submit" id="buttonText" onclick="location.href='./afterEnterCar.html'">출차하기</button>
+                <button type="submit" id="buttonText" onclick="location.href='/afterDepartCar'">출차하기</button>
             </div>
           
         </form>
@@ -113,5 +120,5 @@
 
     </script>
 </body>
-
+</form>
 </html>

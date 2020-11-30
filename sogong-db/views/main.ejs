@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<form action="/main" method="POST">
 <head>
     <title>ParkBentley</title>
     <meta charset="utf-8" />
@@ -10,49 +10,64 @@
     <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
 </head>
 
+
 <body>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <nav class="loginText">
-        <li><a href="./content/login/login.html">Login</a></li>
-        <li><a href="./content/login/join.html">Join</a></li>
+        <%if ( list[0].ID == "root" ) { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/join">Join</a></li>
+        <% } else { %>
+            <li><a href="/main"><%=list[0].ID %>님 환영합니다!</a></li>
+            <li><input type="hidden" value="root" name="logoutID" /></li>
+            <li><button type="submit" id="button1" onclick="logout()" value="Logout">Logout</li>
+        <% } %>
     </nav>
+    <script>
+        function logout() {
+            alert("로그아웃됩니다.");
+            window.location.href = "./main";
+        }
+    </script>
     <nav class="navbar">
-        <div class="logo">d
+        <div class="logo">
 
-            <a href="./index.html">Park Bentley</a>
+            <a href="/main">Park Bentley</a>
 
         </div>
         <ul class="navbar_menu">
             <li><a href="">서비스 이용</a>
                 <ul>
-                    <li><a href="./makeReservation.html">예약하기</a></li>
-                    <li><a href="./changeReservation.html">예약변경</a></li>
-                    <li><a href="#">예약확인</a></li>
+                    <li><a href="/makeReservation">예약하기</a></li>
+                    <li><a href="/changeReservation">예약변경</a></li>
+                    <li><a href="/confirmReservation">예약확인</a></li>
                 </ul>
             </li>
             <li><a href="">입출차 확인</a>
                 <ul>
-                    <li><a href="./enterCar.html">입차하기</a></li>
-                    <li><a href="#">출차하기</a></li>
+                    <li><a href="/enterCar">입차하기</a></li>
+                    <li><a href="/departCar">출차하기</a></li>
                 </ul>
             </li>
             <li><a href="">마이페이지</a>
                 <ul>
-                    <li><a href="myrecord.html">사용 기록 조회</a></li>
-                    <li><a href="#">잔액 충전</a></li>
+                    <li><a href="/myrecord">사용 기록 조회</a></li>
+                    <li><a href="/charge">잔액 충전</a></li>
                 </ul>
             </li>
-            <li><a href="">사용 통계 조회</a>
-                <!--관리자 권한일때만 접근 가능하도록 설계-->
-                <ul>
-                    <li><a href="#">월별 사용통계</a></li>
-                    <li><a href="#">일별 사용통계</a></li>
-                </ul>
-            </li>
+            <%if ( list[0].ID == "admin" ) { %>
+                <li><a href="">사용 통계 조회</a>
+                    <ul>
+                        <li><a href="/adminMonth">월별 사용통계</a></li>
+                        <li><a href="/adminDay">일별 사용통계</a></li>
+                    </ul>
+                </li>
+            <% } else { %>
+            <% } %>
         </ul>
     </nav>
     <div class="mainbar">
-        <form action="/main" method="POST">
+        
             <div class="right">
                 <div class="js-date" id="date">
                     <h2>date</h2>
@@ -70,7 +85,7 @@
                 
                 
             </div>
-        </form>
+        
     </div>
 
 

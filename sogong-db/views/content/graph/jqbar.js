@@ -12,7 +12,7 @@ License: http://www.egrappler.com/license.
                 animationSpeed: 2000,
                 barLength: 200,
                 orientation: 'h',
-                barWidth: 10,
+                barWidth: 20,
                 barColor: 'red',
                 label: '&nbsp;',
                 value: 100
@@ -23,6 +23,19 @@ License: http://www.egrappler.com/license.
                 var valueLabelHeight = 0;
                 var progressContainer = $(this);
 
+
+
+
+                var year = document.getElementById('select_year');
+                var month = document.getElementById('select_month');
+
+                var yearSelected = year.options[year.selectedIndex].text;
+                var monthSelected = month.options[month.selectedIndex].text;
+
+                var termDate = yearSelected + '년 ' + monthSelected + '월의 사용 기록 내역을 조회합니다.';
+                document.getElementById("termDate").innerHTML = termDate;
+
+                
                 if (settings.orientation == 'h') {
 
                     progressContainer.addClass('jqbar horizontal').append('<span class="bar-label"></span><span class="bar-level-wrapper"><span class="bar-level"></span></span><span class="bar-percent"></span>');
@@ -41,6 +54,9 @@ License: http://www.egrappler.com/license.
                     progressContainer.addClass('jqbar vertical').append('<span class="bar-percent"></span><span class="bar-level-wrapper"><span class="bar-level"></span></span><span class="bar-label"></span>');
 
                     var progressLabel = progressContainer.find('.bar-label').html(settings.label);
+                    //여기 html() 에다가 monthSelected 넣으면 select 한 달이 출력되긴함
+                    //내 생각은 이거에다가 -1 하고 + 1 해서 label에 넣어주는것을 하는것...!
+
                     var progressBar = progressContainer.find('.bar-level').attr('data-value', settings.value);
                     var progressBarWrapper = progressContainer.find('.bar-level-wrapper');
 
@@ -72,7 +88,7 @@ License: http://www.egrappler.com/license.
                                 var percent = parseInt(currentWidth / settings.barLength * 100);
                                 if (isNaN(percent))
                                     percent = 0;
-                                progressContainer.find('.bar-percent').html(percent + '%');
+                                progressContainer.find('.bar-percent').html(percent);
                             }
                         });
                     }
@@ -85,7 +101,7 @@ License: http://www.egrappler.com/license.
                                 var percent = parseInt((settings.barLength - parseInt(currentValue)) / settings.barLength * 100);
                                 if (isNaN(percent))
                                     percent = 0;
-                                progressContainer.find('.bar-percent').html(Math.abs(percent) + '%');
+                                progressContainer.find('.bar-percent').html(Math.abs(percent));
                             }
                         });
 
