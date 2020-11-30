@@ -769,51 +769,42 @@ app.get(['/checkMyRecord','/checkMyRecord/:ReservationNum'], function (req, res)
 
 /* ------------------------------------ 월별 통계량 보기 ------------------------------------ */
 app.get('/adminMonth', function (req, res) {
-    var sql = 'SELECT ReservationDate FROM Reservation';
+    
     var body = req.body;
     var Year = body.Year;
     var Month = body.Month;
     console.log(Year,Month);
     conn.query(sql, function (err, rows, fields) {
-     
-        var ReservationDate = rows[0].ReservationDate;
+
         var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation WHERE month(ReservationDate)<=?';
         if(ReservationDate){
-        conn.query(sql,[Year],function (err, Reservation, fields) {
+        conn.query(sql,[Month],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0] ,Year:Year,Month:Month});
+            else {res.render('adminMonth.ejs', { Reservation : Reservation[0] ,Year:Year, Month:Month});
         }
         });
-    }else {
-        res.render('/adminMonth', {rows : rows, Reservation:undefined})
     }
   
     });
 });
 
 app.post('/adminMonth', function (req, res) {
-    var sql = 'SELECT ReservationDate FROM Reservation';
+
     var body = req.body;
     var Year = body.Year;
     var Month = body.Month;
     console.log(Year,Month);
-    conn.query(sql, function (err, rows, fields) {
-     
-        var ReservationDate = rows[0].ReservationDate;
+
         var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation WHERE month(ReservationDate)<=?';
-        if(ReservationDate){
-        conn.query(sql,[Year],function (err, Reservation, fields) {
+        conn.query(sql,[Month],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0] ,Year:Year,Month:Month});
+            else {res.render('adminMonth.ejs', { Reservation : Reservation[0] ,Year:Year,Month:Month});
         }
         });
-    }else {
-        res.render('/adminMonth', {rows : rows, Reservation:undefined})
-    }
-  
-    });
+    
+
 });
 
 /* -------------------------------------------------------------------------------------- */
