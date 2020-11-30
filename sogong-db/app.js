@@ -754,12 +754,12 @@ app.get(['/checkMyRecord','/checkMyRecord/:ReservationNum'], function (req, res)
             conn.query(sql,[ReservationNum],function(err, Reservation, fields){
                 if(err) console.log('query is not excuted. select fail...\n' + err);
                 else {
-                    res.render('checkMyRecord.ejs', {records : records, Reservation:Reservation[0]});
+                    res.render('checkMyRecord', {records : records, Reservation:Reservation[0]});
             }
         });
                   
         }else {
-            res.render('/checkMyRecord',{records : records, Reservation: undefined})
+            res.render('checkMyRecord',{records : records, Reservation: undefined})
         }
     });
     
@@ -769,27 +769,44 @@ app.get(['/checkMyRecord','/checkMyRecord/:ReservationNum'], function (req, res)
 
 /* ------------------------------------ 월별 통계량 보기 ------------------------------------ */
 app.get('/adminMonth', function (req, res) {
-    var sql = 'SELECT ReservationDate FROM Reservation';
+    
     var body = req.body;
     var Year = body.Year;
-    var Month = body.Month;
+    var Month = [body.Month-2, body.Month-1,body.Month,body.Month-(-1),body.Month-(-2)];
+    var midMonth = body.Month;
     console.log(Year,Month);
-    conn.query(sql, function (err, rows, fields) {
-     
-        var ReservationDate = rows[0].ReservationDate;
-        var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation, user WHERE month(?)<=12 AND name=? ';
-        if(ReservationDate){
-        conn.query(sql,[ReservationDate,loginMemberID],function (err, Reservation, fields) {
+
+    var sql = 'SELECT Count(ReservationNum) count,ReservationNum , Month(ReservationDate) M FROM Reservation WHERE month(ReservationDate)=? AND year(ReservationDate)=?';
+        conn.query(sql,[midMonth,Year],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0]});
+            else {res.render('adminMonth.ejs', { Reservation : Reservation[0] ,Year:Year, Month:midMonth});
         }
         });
-    }else {
-        res.render('/adminMonth', {rows : rows, Reservation:undefined})
-    }
-  
-    });
+
+});
+
+app.post('/adminMonth', function (req, res) {
+
+    var body = req.body;
+    var Year = body.Year;
+    var Month = [body.Month-2, body.Month-1,body.Month,body.Month-(-1),body.Month-(-2)];
+    var midMonth = body.Month;
+    console.log(Year,Month);
+
+        var sql = 'SELECT Count(ReservationNum) count,ReservationNum , Month(ReservationDate) M FROM Reservation WHERE month(ReservationDate)=? AND year(ReservationDate)=?';
+        conn.query(sql,[midMonth,Year],function (err, Reservation, fields) {
+
+            var sql ='SELECT Count(ReservationNum) count1, Month(ReservationDate) M1 FROM Reservation WHERE month(ReservationDate)=? AND year(ReservationDate)=?'
+            conn.query(sql,[midMonth-1,Year],function (err, Res1, fields) {
+                console.log(Res1);
+                if(err) console.log('query is not excuted. select fail...\n' + err);
+                else {res.render('adminMonth.ejs', { Res1:Res1[0], Reservation : Reservation[0] ,Year:Year,Month:midMonth});
+            }
+        });
+        });
+    
+
 });
 
 /* -------------------------------------------------------------------------------------- */
