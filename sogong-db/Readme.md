@@ -18,8 +18,3 @@ CREATE DATABASE my_db;
 ```
 ### DB TABLE
 ![db_table](https://user-images.githubusercontent.com/55631147/100452848-49537f00-30fd-11eb-9a83-d3fbe50038b4.PNG)
-
-### DB 데이터 삽입 필요
-INSERT INTO parkbentley.user (ID, PW, Name, Money, Email, CarType, CarNum) VALUES('admin', '1','','0','','','1');
-
-INSERT INTO parkbentley.user (ID, PW, Name, Money, Email, CarType, CarNum) VALUES('root', '1','','0','','','1');

@@ -1,11 +1,13 @@
 var mysql = require('mysql');
+// 데이터베이스 연결
 var db_info = {
     host: 'localhost',
     port: '3306',
     user: 'soo',
     password: '0325',
     database: 'my_db',
-    insecureAuth: true
+    insecureAuth: true,
+    multipleStatements: true // 여러 쿼리를 ';'를 기준으로 한번에 보낼 수 있게한다.
 }
 
 module.exports = {

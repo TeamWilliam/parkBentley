@@ -1,0 +1,89 @@
+.roundYellowBox{
+
+    position: absolute;
+    width: 1200px;
+    /* height: 470px; */
+    left: 50%;
+    top: 363px;
+    margin-left: -600px;
+    vertical-align: middle;
+    background: #FFFFFF;
+    border: 3px solid #EAD08C;
+    border-radius: 58px;
+    
+    padding: 20px;
+    font-weight: 800;
+    cursor: default;
+}
+.roundYellowBox .text{
+    padding-left: 30px;
+    vertical-align: middle;
+    /* text-align: center; */
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 30px;
+    /* identical to box height */
+    color: #483F37;
+}
+.roundYellowBox .warnningText{
+    padding-left: 30px;
+    vertical-align: middle;
+    /* text-align: center; */
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 30px;
+    /* identical to box height */
+    color: #ff0000;
+}
+#nextYellowButton button{
+    position: absolute;
+    float: left;
+    width: 260px;
+    height: 77px;
+    padding: 10px;
+    margin: 20px;
+    left: 50%;
+    top: 880px;
+
+    vertical-align: middle;
+    background: #EAD08C;
+    border: 3px solid #EAD08C;
+    border-radius: 30px;
+}
+#prevYellowButton button{
+    position: absolute;
+    float: left;
+    width: 260px;
+    height: 77px;
+    padding: 10px;
+    margin: 20px;
+    margin-left: -260px;
+    left: 50%;
+    top: 880px;
+
+    vertical-align: middle;
+    background: #EAD08C;
+    border: 3px solid #EAD08C;
+    border-radius: 30px;
+}
+#buttonText{
+    /* position: absolute;
+    width: 179px;
+    height: 45px;
+    left: 1100px;
+    top: 904px; */
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Red Rose";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+    /* identical to box height */
+    color: #483F37;
+}

@@ -17,7 +17,6 @@ app.get('/', function (req, res) {
     res.send('ROOT');
 });
 
-
 var loginMemberID = "root"
 
 /* -----------------------------------임시메인화면 --------------------------------*/
@@ -168,7 +167,7 @@ app.post('/loginAf', function (req, res) {
             console.log(results[0]);
             var memberPW = results[0].PW;
             if (memberPW == pw ) {
-                res.send('<script type="text/javascript">alert("로그인되었습니다.");window.location="/main";</script>');
+                res.send('<script type="text/javascript">alert("로그인되었습니다.");window.location="/main-login";</script>');
                 console.log("로그인 완료");
                 console.log(sql1);
                 loginMemberID = results[0].ID; // 로그인 된 ID 전역변수에 저장
@@ -333,29 +332,24 @@ app.get('/transaction1', function (req, res) {
     });
 });
 
-app.get('/makeReservation', function (req, res) {
-    res.render('makeReservation.ejs');
+
+app.get('/main', function (req, res) {
+    res.render('main.ejs');
 });
 
+app.get('/main/:id', function (req, res) {
+    var id = req.params.ID;
+    res.render('/main'+id);
+});
 
 app.get('/adminDay', function (req, res) {
     res.render('adminDay.ejs');
 });
 
-app.get('/adminMonth', function (req, res) {
-    res.render('adminMonth.ejs');
-});
+
 
 app.get('/afterDepartCar', function (req, res) {
     res.render('afterDepartCar.ejs');
-});
-
-app.get('/changeReservation', function (req, res) {
-    res.render('changeReservation.ejs');
-});
-
-app.get('/changeReservation-1', function (req, res) {
-    res.render('changeReservation-1.ejs');
 });
 
 app.get('/departCar', function (req, res) {
@@ -384,7 +378,7 @@ app.get('/reservationPayment', function (req, res) {
 
 /* -----------------------------개인 기록 조회--------------------------------------- */
 app.get('/myrecord', function (req, res) {
-    var sql = 'SELECT * FROM Reservation';
+    var sql = 'SELECT ReservationDate, StartTime, EndTime, ReservationNum, UseStatus FROM Reservation';
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
         else res.render('myrecord.ejs', {list : rows});
@@ -394,7 +388,6 @@ app.get('/myrecord', function (req, res) {
 
 /* ------------------------------------개인기록 상세 조회 --------------------------------*/
 app.get(['/checkMyRecord','/checkMyRecord/:ReservationNum'], function (req, res) {
-
     var sql = 'SELECT ReservationNum FROM Reservation';
     conn.query(sql,function (err, records, fields) {
         var ReservationNum = req.params.ReservationNum; 
@@ -416,17 +409,46 @@ app.get(['/checkMyRecord','/checkMyRecord/:ReservationNum'], function (req, res)
 
 /* -------------------------------------------------------------------------------------- */
 
-app.post('/loginAf', function (req, res) {
-    var body = req.body;
-    console.log(body);
-
-    var sql = 'INSERT INTO BOARD VALUES(?, ?, ?, NOW())';
-    var params = [body.id, body.pw, body.content];
-    console.log(sql);
-    conn.query(sql, params, function(err) {
-        if(err) console.log('query is not excuted. insert fail...\n' + err);
-        else res.redirect('/transaction1');
+/* ------------------------------------ 월별 통계량 보기 ------------------------------------ */
+app.get('/adminMonth', function (req, res) {
+    var sql = 'SELECT ReservationDate FROM Reservation';
+    // var body = req.body;
+    // var Year = body.Year;
+    // var Month = body.Month;
+    // console.log(Year,Month);
+    conn.query(sql, function (err, rows, fields) {
+     
+        var ReservationDate = rows[0].ReservationDate;
+        var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation WHERE month(?)<=28 ';
+        if(ReservationDate){
+        conn.query(sql,[ReservationDate],function (err, Reservation, fields) {
+            console.log(Reservation);
+            if(err) console.log('query is not excuted. select fail...\n' + err);
+            else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0]});
+        }
+        });
+    }else {
+        res.render('/adminMonth', {rows : rows, Reservation:undefined})
+    }
+  
     });
 });
+
+/* -------------------------------------------------------------------------------------- */
+
+/* ----------------------------------예약하기------------------------------------- */
+app.get('/makeReservation', function (req, res) {
+    res.render('makeReservation.ejs');
+});
+
+/* ----------------------------------calendar 받아오기------------------------------------- */
+app.get('/calendar', function (req, res) {
+    res.render('calendar.ejs');
+});
+/* -------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------------------- */
+
+
 
 app.listen(3000, () => console.log('Server is running on port 3000...'));

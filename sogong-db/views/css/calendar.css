@@ -1,0 +1,149 @@
+html, body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  .clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+    float: none;
+  }
+  
+  /* ======== Calendar ======== */
+  /* .my-calendar {
+      
+    position: absolute;
+    width: 1200px;
+    height: 470px;
+    left: 50%;
+    top: 363px;
+    margin-left: -600px;
+    vertical-align: middle;
+    background: #FFFFFF;
+    border: 3px solid #EAD08C;
+    border-radius: 58px;
+    
+    padding: 20px;
+    font-weight: 800;
+    cursor: default;
+    
+  } */
+  .roundYellowBox .clicked-date {
+    border-radius: 25px;
+    margin-top: 20px 20px;
+    float: right;
+    width: 65%;
+    height: 400px;
+    padding: 20px;
+    background: rgb(242, 241, 241);
+  }
+  .clicked-date .sel-date{
+    width: 90%;
+    height: 20%;
+  }
+  .clicked-date .sel-date .cal-all {
+    float: left;
+    font-size: 24px;
+    margin: 10px;
+  }
+
+  .clicked-date .sel-date .cal-day {
+    float: left;
+    font-size: 24px;
+    margin: 10px;
+
+  }
+  .clicked-date .sel-date .cal-date {
+    float: left;
+    font-size: 24px;
+    margin: 10px;
+
+  }
+
+  .roundYellowBox .calendar-box {
+    vertical-align: middle;
+    text-align: center;
+    float: left;
+    width: 35%;
+    padding-right: 30px;
+    padding-top: 30px;
+  }
+  
+  .ctr-box {
+    padding: 0 16px;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  .ctr-box .btn-cal {
+    position: relative;
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  .ctr-box .btn-cal:after {
+    content: '<';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 25px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .ctr-box .btn-cal.next {
+    float: right;
+  }
+  .ctr-box .btn-cal.next:after {
+    content: '>';
+  }
+  
+  .cal-table {
+    width: 100%;
+  }
+  .cal-table th {
+    width: 14.2857%;
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: 900;
+  }
+  .cal-table td {
+    padding: 3px 0;
+    height: 50px;
+    font-size: 15px;
+    vertical-align: middle;
+  }
+  .cal-table td.day {
+    position: relative;
+    cursor: pointer;
+  }
+  .cal-table td.today {
+    background: #c4c4c4;
+    border-radius: 50%;
+    color: #000000;
+  }
+  .cal-table td.day-active {
+    background: #EAD08C;
+    border-radius: 50%;
+    color: #fff;
+  }
+  .cal-table td.has-event:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: #FFC107;
+  }
