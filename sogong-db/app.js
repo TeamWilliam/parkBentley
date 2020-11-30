@@ -796,10 +796,20 @@ app.get('/reservationPayment', function (req, res) {
 
 /* -----------------------------개인 기록 조회--------------------------------------- */
 app.get('/myrecord', function (req, res) {
-    var sql = 'SELECT ReservationDate, StartTime, EndTime, ReservationNum, UseStatus FROM Reservation';
-    conn.query(sql, function (err, rows, fields) {
-        if(err) console.log('query is not excuted. select fail...\n' + err);
-        else res.render('myrecord.ejs', {list : rows});
+    var userID = loginMemberID;
+
+    var sql = 'SELECT * FROM user WHERE ID=?';
+
+    console.log("현재 ID : " + userID);
+
+    conn.query(sql, function (err, idrows, fields) {
+
+     var sql = 'SELECT ReservationDate, StartTime, EndTime, ReservationNum, UseStatus FROM Reservation';
+        conn.query(sql, function (err, rows, fields) {
+            if(err) console.log('query is not excuted. select fail...\n' + err);
+            else res.render('myrecord.ejs', {rows : rows, list: idrows});
+        });
+
     });
 });
 /* -------------------------------------------------------------------------------------- */
@@ -865,6 +875,66 @@ app.post('/adminMonth', function (req, res) {
         });
     
 
+});
+
+/* -------------------------------------------------------------------------------------- */
+
+/* ------------------------------------ 일별 통계량 보기 ------------------------------------ */
+app.get('/adminDay', function (req, res) {
+    
+    var body = req.body;
+    var sYear = body.sYear;
+    var sMonth = body.sMonth;
+    var sDay = body.sDay;
+    var lYear = body.lYear;
+    var lMonth = body.lMonth;
+    var lDay = body.lDay;
+
+    console.log(Year,Month);
+
+    var sql = "select ReservationDate, startTime, endTime,reservationNum,usestatus from reservation where year(ReservationDate)=? AND Month(ReservationDate)>=? AND Month(ReservationDate)<=? AND Day(ReservationDate)>=? AND Day(ReservationDate) <=?"
+        conn.query(sql,[sYear,sMonth,lMonth,sDay,lDay],function (err, Reservation, fields) {
+            console.log(Reservation);
+            if(err) console.log('query is not excuted. select fail...\n' + err);
+            else {res.render('adminDay.ejs', { Reservation : Reservation ,
+                sYear:sYear, 
+                sMonth:sMonth , 
+                sDay:sDay,
+                lYear:lYear, 
+                lMonth:lMonth , 
+                lDay:lDay
+            });
+        }
+        });
+
+});
+
+app.post('/adminDay', function (req, res) {
+
+    var body = req.body;
+    var sYear = body.sYear;
+    var sMonth = body.sMonth;
+    var sDay = body.sDay;
+    var lYear = body.lYear;
+    var lMonth = body.lMonth;
+    var lDay = body.lDay;
+
+    console.log(sYear,sMonth);
+
+    var sql = "select ReservationDate, startTime, endTime,reservationNum,usestatus from reservation where year(ReservationDate)=? AND Month(ReservationDate)>=? AND Month(ReservationDate)<=? AND Day(ReservationDate)>=? AND Day(ReservationDate) <=?"
+        conn.query(sql,[sYear,sMonth,lMonth,sDay,lDay],function (err, Reservation, fields) {
+            console.log(Reservation);
+            if(err) console.log('query is not excuted. select fail...\n' + err);
+            else {res.render('adminDay.ejs', { Reservation : Reservation ,
+                sYear:sYear, 
+                sMonth:sMonth , 
+                sDay:sDay,
+                lYear:lYear, 
+                lMonth:lMonth , 
+                lDay:lDay
+            });
+        }
+        });
 });
 
 /* -------------------------------------------------------------------------------------- */

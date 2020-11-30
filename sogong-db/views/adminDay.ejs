@@ -64,11 +64,13 @@
     <div class="yellowBar">
         <p class="yellowBarText">일별 사용 통계</p>
         <h2 id="year">
-            날짜 선택&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="select_year"
-                onchange="javascript:startdayAdmin();"></select>년 <select id="select_month"
-                onchange="javascript:startdayAdmin();"></select> 월 <select id="select_day"></select>일 ~
-            <select id="select_lastyear" onchange="javascript:lastdayAdmin();"></select>년 <select id="select_lastmonth"
-                onchange="javascript:lastdayAdmin();"></select> 월 <select id="select_lastday"></select>일
+            <form action='/adminDay' method='POST'>
+            날짜 선택&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="select_year" name="sYear"
+                onchange="javascript:startdayAdmin();"></select>년 <select id="select_month" name="sMonth"
+                onchange="javascript:startdayAdmin();"></select> 월 <select id="select_day" name="sDay"></select>일 ~
+            <select id="select_lastyear" name="lYear" onchange="javascript:lastdayAdmin();"></select>년 <select id="select_lastmonth" name="lMonth"
+                onchange="javascript:lastdayAdmin();"></select> 월 <select id="select_lastday" name="lDay"></select>일
+           
         </h2>
         <button onclick="getDateAdmin();">조회</button>
 
@@ -88,7 +90,7 @@
             <tbody>
             <tr>
                 <!-- 첫번째 줄 시작 -->
-                <td>첫번째 칸</td>
+                <td></td>
                 <td>두번째 칸</td>
                 <td>세번째 칸</td>
                 <td>네번째 칸</td>
@@ -121,7 +123,7 @@
         </tbody>
         </table>
         <div class="js-pickDate" id="date">
-
+        </form>
 
         </div>
         <script src="./content/admin/getDateAdmin.js"></script>

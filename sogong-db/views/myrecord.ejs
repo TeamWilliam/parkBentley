@@ -91,14 +91,14 @@
                 </tr>
             </thead>
             <tbody>
-                <% for(i = 0; i < list.length; i++) { %>
+                <% for(i = 0; i < rows.length; i++) { %>
                 <tr>
-                    <td><%=list[i].ReservationDate %></td>
-                    <td><%=list[i].StartTime %>~ <%=list[i].EndTime %></td>
-                    <td><%=list[i].ReservationNum %></td>
-                    <td><%=list[i].UseStatus %></td>
+                    <td><%=rows[i].ReservationDate %></td>
+                    <td><%=rows[i].StartTime %>~ <%=rows[i].EndTime %></td>
+                    <td><%=rows[i].ReservationNum %></td>
+                    <td><%=rows[i].UseStatus %></td>
                     <td><button type="button"
-                            onclick='location.href="/checkMyRecord/<%=list[i].ReservationNum %>"'>확인하기</button></td>
+                            onclick='location.href="/checkMyRecord/<%=rows[i].ReservationNum %>"'>확인하기</button></td>
                 </tr>
                 <% } %>
 
