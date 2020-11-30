@@ -252,8 +252,6 @@ app.post('/enterCar', function (req, res) {
             console.log("Text :" + carNum);
             console.log("Text"+carNum);
             carNum = carNum.trim();
-            
-            window.open("/main", "차 번호 확인", "width=400, height=300, left=100, top=50");
 
             var sql1 = 'SELECT * FROM reservation WHERE CarNum = ? ';
             console.log(sql1);
@@ -262,15 +260,16 @@ app.post('/enterCar', function (req, res) {
             if(err) {
                 console.log('query is not excuted. insert fail...\n' + err);
             }
-            if(!results[0]) {
+            // if(!results[0]) {
                 
-                console.log("차 번호로 예약된 게 없습니다.");
-                //res.redirect('/enterCar_ReserNum');
-            }
+            //     console.log("차 번호로 예약된 게 없습니다.");
+            //     //res.redirect('/enterCar_ReserNum');
+            // }
             else { 
-                console.log("예약이 되어있습니다. 차단기가 올라갑니다.");
+                //console.log("예약이 되어있습니다. 차단기가 올라갑니다.");
                 //res.send('<script type="text/javascript">alert("예약이 되어있습니다. 차단기가 올라갑니다.");window.location="/afterEnterCar";</script>');
-                res.redirect('/afterEnterCar');
+                // 차번호 확인용 팝업창으로 바로 이동
+                res.redirect('/checkCarNumber');
             }
             });
 
