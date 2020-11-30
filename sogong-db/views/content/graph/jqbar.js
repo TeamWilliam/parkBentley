@@ -94,7 +94,7 @@ License: http://www.egrappler.com/license.
                     }
                     else {
 
-                        var h = settings.barLength - settings.barLength * level / 100;
+                        var h = settings.barLength - settings.barLength * level / 10;
                         progressBar.animate({ top: h }, {
                             duration: 2000,
                             step: function (currentValue) {
