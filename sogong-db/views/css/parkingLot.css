@@ -130,8 +130,17 @@ transform: rotate(-90deg);
     position: absolute;
 }
 .exit{
-    padding-left: 600px;
+    z-index: 1;
+    position: absolute;
+    width: 72px;
+    height: 75px;
+    left: 838px;
+    top: 491px;
+
 }
 .info{
-    margin-top: 100px;
+    margin-top: -200px;
+}
+.imageExit{
+    padding-left: 500px;
 }
