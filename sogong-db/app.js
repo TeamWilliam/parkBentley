@@ -754,12 +754,12 @@ app.get(['/checkMyRecord','/checkMyRecord/:ReservationNum'], function (req, res)
             conn.query(sql,[ReservationNum],function(err, Reservation, fields){
                 if(err) console.log('query is not excuted. select fail...\n' + err);
                 else {
-                    res.render('checkMyRecord.ejs', {records : records, Reservation:Reservation[0]});
+                    res.render('checkMyRecord', {records : records, Reservation:Reservation[0]});
             }
         });
                   
         }else {
-            res.render('/checkMyRecord',{records : records, Reservation: undefined})
+            res.render('checkMyRecord',{records : records, Reservation: undefined})
         }
     });
     
@@ -777,12 +777,12 @@ app.get('/adminMonth', function (req, res) {
     conn.query(sql, function (err, rows, fields) {
      
         var ReservationDate = rows[0].ReservationDate;
-        var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation WHERE month(?)<=?';
+        var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation WHERE month(ReservationDate)<=?';
         if(ReservationDate){
-        conn.query(sql,[ReservationDate,Year,loginMemberID],function (err, Reservation, fields) {
+        conn.query(sql,[Year],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0]});
+            else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0] ,Year:Year,Month:Month});
         }
         });
     }else {
@@ -801,12 +801,12 @@ app.post('/adminMonth', function (req, res) {
     conn.query(sql, function (err, rows, fields) {
      
         var ReservationDate = rows[0].ReservationDate;
-        var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation WHERE month(?)<=?';
+        var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation WHERE month(ReservationDate)<=?';
         if(ReservationDate){
-        conn.query(sql,[ReservationDate,Year,loginMemberID],function (err, Reservation, fields) {
+        conn.query(sql,[Year],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0]});
+            else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0] ,Year:Year,Month:Month});
         }
         });
     }else {
