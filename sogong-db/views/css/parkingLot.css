@@ -1,0 +1,37 @@
+.parking01{
+    z-index: 1;
+    position: absolute;
+    width: 99px;
+    height: 52px;
+    left: 468px;
+    top: 388px;
+    
+    background: #C4C4C4;
+    border-radius: 10px;
+    transform: rotate(-90deg);
+}
+
+.parking02{
+    z-index: 1;
+    position: absolute;
+
+}
+
+.parking03{
+    z-index: 1;
+}
+.parking04{
+    z-index: 1;
+}
+.parking05{
+    z-index: 1;
+    position: absolute;
+    width: 99px;
+height: 52px;
+left: 792px;
+top: 388px;
+
+background: #C4C4C4;
+border-radius: 10px;
+transform: rotate(-90deg);
+}
