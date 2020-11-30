@@ -601,7 +601,7 @@ app.post('/changeReservation' , function (req, res) {
 app.get('/afterChangeReservation', function (req, res) {
     var userID = loginMemberID;
 
-    var sql = 'SELECT * FROM user WHERE ID="?"';
+    var sql = 'SELECT * FROM user WHERE ID=?';
 
     console.log("현재 ID : " + userID);
     
