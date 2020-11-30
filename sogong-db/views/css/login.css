@@ -6,7 +6,7 @@
     list-style: none;
 }
 .loginmain .login .top{
-    line-height: 30px;
+    line-height: 40px;
     padding: 20px 20px 20px 20px;
     border: 3px solid #EAD08C;
     border-radius: 20px;
@@ -21,11 +21,12 @@
     color: hsl(28, 13%, 25%); 
     font-weight: bold;
     
+    
 }
 .loginmain .login .top li input [type ="text"], 
 .loginmain .login .top li input [type ="password"]{
-    width: 130px;
-    height: 33px;
+    width: 150px;
+    height: 50px;
     list-style: none;
     padding:0;
     border-color: #E7E7E7;
@@ -44,6 +45,25 @@
     border: 1px solid #EAD08C;
     border-radius: 10px;
 }
+.loginmain .login .top .loginbtn{
+    display: block;
+    width: 111px;
+    height: 60px;
+    list-style: none;
+    font-size: 25px;
+    background-color: #EAD08C;
+    font-size: 18px;
+    color: #483F37;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    margin-left: 130px;
+    margin-top: 20px;
+    
+    border: 1px solid #EAD08C;
+    border-radius: 10px;
+}
+
 .loginmain .login .top .li .save {
     padding: 0 0 0 59px;
     font-weight: normal;
