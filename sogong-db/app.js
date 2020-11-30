@@ -601,7 +601,7 @@ app.post('/changeReservation' , function (req, res) {
 app.get('/afterChangeReservation', function (req, res) {
     var userID = loginMemberID;
 
-    var sql = 'SELECT * FROM user WHERE ID=?';
+    var sql = 'SELECT * FROM user WHERE ID="?"';
 
     console.log("현재 ID : " + userID);
     
@@ -777,9 +777,33 @@ app.get('/adminMonth', function (req, res) {
     conn.query(sql, function (err, rows, fields) {
      
         var ReservationDate = rows[0].ReservationDate;
-        var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation, user WHERE month(?)<=12 AND name=? ';
+        var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation WHERE month(?)<=?';
         if(ReservationDate){
-        conn.query(sql,[ReservationDate,loginMemberID],function (err, Reservation, fields) {
+        conn.query(sql,[ReservationDate,Year,loginMemberID],function (err, Reservation, fields) {
+            console.log(Reservation);
+            if(err) console.log('query is not excuted. select fail...\n' + err);
+            else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0]});
+        }
+        });
+    }else {
+        res.render('/adminMonth', {rows : rows, Reservation:undefined})
+    }
+  
+    });
+});
+
+app.post('/adminMonth', function (req, res) {
+    var sql = 'SELECT ReservationDate FROM Reservation';
+    var body = req.body;
+    var Year = body.Year;
+    var Month = body.Month;
+    console.log(Year,Month);
+    conn.query(sql, function (err, rows, fields) {
+     
+        var ReservationDate = rows[0].ReservationDate;
+        var sql = 'SELECT Count(ReservationNum) count,ReservationNum FROM Reservation WHERE month(?)<=?';
+        if(ReservationDate){
+        conn.query(sql,[ReservationDate,Year,loginMemberID],function (err, Reservation, fields) {
             console.log(Reservation);
             if(err) console.log('query is not excuted. select fail...\n' + err);
             else {res.render('adminMonth.ejs', {rows : rows, Reservation : Reservation[0]});
