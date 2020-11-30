@@ -927,56 +927,53 @@ app.get(['/checkMyRecord','/checkMyRecord/:ReservationNum'], function (req, res)
 /* ------------------------------------ 월별 통계량 보기 ------------------------------------ */
 app.get('/adminMonth', function (req, res) {
     var userID = loginMemberID;
-
     var sql = 'SELECT * FROM user WHERE ID=?';
-
     console.log("현재 ID : " + userID);
+    
+    conn.query(sql, [userID], function (err, rows, results) {
 
-    conn.query(sql,[userID],function (err, row, fields) {
-    var body = req.body;
-    var Year = body.Year;
-    var Month = [body.Month-2, body.Month-1,body.Month,body.Month-(-1),body.Month-(-2)];
-    var nextmonth = body.Month-(-1);
-    var midMonth = body.Month;
-    console.log(Year,Month);
-
-    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? "
-        conn.query(sql,[body.Month-2, body.Month-1,body.Month,nextmonth,nextmonth+1],function (err, Reservation, fields) {
+        var body=req.body;
+        var Year=body.Year;
+        var Month=body.Month;
+        var sql = 'SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum) count, Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? '
+        console.log(Year,Month);
+        conn.query(sql, [Month-3,Month-2,Month-1,Month,Month-(-1)], function (err, Reservation, results) {
+        if(err) console.log('query is not excuted. select fail...\n' + err);
+        else {
             console.log(Reservation);
-            if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', { list:row ,Reservation : Reservation ,Year:Year, Month:midMonth});
+            res.render('adminMonth.ejs', {list : rows, Reservation: Reservation ,Month: Month});
+            
         }
         });
     });
+
 });
+
 
 app.post('/adminMonth', function (req, res) {
 
     var userID = loginMemberID;
-
     var sql = 'SELECT * FROM user WHERE ID=?';
-
     console.log("현재 ID : " + userID);
+    
+    conn.query(sql, [userID], function (err, rows, results) {
 
-    conn.query(sql,[userID],function (err, row, fields) {
-    var body = req.body;
-    var Year = body.Year;
-    var Month = [body.Month-2, body.Month-1,body.Month,body.Month-(-1),body.Month-(-2)];
-    var nextmonth = body.Month-(-1);
-    var midMonth = body.Month;
-    console.log(Year,Month);
-
-    var sql = "SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? "
-        conn.query(sql,[body.Month-2, body.Month-1,body.Month,nextmonth,nextmonth+1],function (err, Reservation, fields) {
+        var body=req.body;
+        var Year=body.Year;
+        var Month=body.Month;
+        var sql = 'SELECT Count(ReservationNum) c , Month(ReservationDate) m FROM Reservation WHERE month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum) count, Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? UNION Select Count(ReservationNum), Month(ReservationDate)  from reservation where month(ReservationDate)=? '
+        console.log(Year,Month);
+        conn.query(sql, [Month-3,Month-2,Month-1,Month,Month-(-1)], function (err, Reservation, results) {
+        if(err) console.log('query is not excuted. select fail...\n' + err);
+        else {
             console.log(Reservation);
-            if(err) console.log('query is not excuted. select fail...\n' + err);
-            else {res.render('adminMonth.ejs', { list:row ,Reservation : Reservation ,Year:Year, Month:midMonth});
+            res.render('adminMonth.ejs', {list : rows, Reservation: Reservation ,Month: Month});
+            
         }
         });
     });
 
 });
-
 /* -------------------------------------------------------------------------------------- */
 
 /* ------------------------------------ 일별 통계량 보기 ------------------------------------ */
